@@ -1,0 +1,201 @@
+---
+id: NB-16
+slug: nb-16-mlops-experiment-tracking
+title: "MLOps & Experiment Tracking"
+layer: layer-4-systems-infra
+order: 16
+summary: "Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration."
+estimatedMinutes: 480
+difficulty: Intermediate
+prerequisites:
+  - NB-05
+  - NB-06
+tags:
+  - mlops
+  - experiments
+  - tracking
+  - reproducibility
+updatedAt: "2026-04-14"
+resources:
+  - title: "MLflow documentation"
+    href: "https://mlflow.org/docs/latest/"
+    note: "Official or high-signal reference for MLOps & Experiment Tracking."
+  - title: "W&B documentation"
+    href: "https://docs.wandb.ai/"
+    note: "Official or high-signal reference for MLOps & Experiment Tracking."
+  - title: "DVC documentation"
+    href: "https://dvc.org/doc"
+    note: "Official or high-signal reference for MLOps & Experiment Tracking."
+  - title: "Feast documentation"
+    href: "https://docs.feast.dev/"
+    note: "Official or high-signal reference for MLOps & Experiment Tracking."
+  - title: "ZenML documentation"
+    href: "https://docs.zenml.io/"
+    note: "Official or high-signal reference for MLOps & Experiment Tracking."
+  - title: "Evidently AI (drift)"
+    href: "https://docs.evidentlyai.com/"
+    note: "Official or high-signal reference for MLOps & Experiment Tracking."
+---
+
+## What this lesson is really about
+
+Experiment tracking sounds administrative until you lose the ability to explain why a model improved, regressed, or cannot be reproduced. Then it becomes essential engineering hygiene.
+
+MLOps is valuable when it reduces ambiguity. This lesson focuses on that core purpose rather than on tool worship.
+
+## What you will understand
+
+- Track model and experiment state without relying on memory.
+- Understand lineage across datasets, parameters, and artifacts.
+- Reduce confusion between exploration and productionized training.
+- Design workflows that make comparison and rollback possible.
+
+## Why this topic matters in real AI engineering
+
+Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Experiment tracking
+
+Experiment tracking gets easier once you stop treating MLflow (runs, experiments, artifacts), W&B (sweeps, artifacts, and tables) as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how MLflow (runs starts the behavior, how experiments, artifacts), W&B (sweeps, and artifacts change the tradeoff, and why tables) is often where reliability, latency, or quality becomes visible. Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration.
+
+If you can explain how MLflow (runs connects to tables), you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Model registry
+
+Model registry gets easier once you stop treating versioning, staging (dev/staging/prod), model metadata, and lineage as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how versioning starts the behavior, how staging (dev/staging/prod) and model metadata change the tradeoff, and why lineage is often where reliability, latency, or quality becomes visible. Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration.
+
+If you can explain how versioning connects to lineage, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Data versioning
+
+Data versioning gets easier once you stop treating DVC (data version control), remote storage, pipelines, and `dvc repro` as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how DVC (data version control) starts the behavior, how remote storage and pipelines change the tradeoff, and why `dvc repro` is often where reliability, latency, or quality becomes visible. Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration.
+
+If you can explain how DVC (data version control) connects to `dvc repro`, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Feature stores
+
+Feature stores gets easier once you stop treating Feast architecture, online vs offline stores, and point-in-time correctness as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Feast architecture starts the behavior, how online vs offline stores change the tradeoff, and why point-in-time correctness is often where reliability, latency, or quality becomes visible. Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration.
+
+If you can explain how Feast architecture connects to point-in-time correctness, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. CI/CD for ML
+
+CI/CD for ML gets easier once you stop treating GitHub Actions pipelines, automated retraining triggers, and model diff checks as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how GitHub Actions pipelines starts the behavior, how automated retraining triggers change the tradeoff, and why model diff checks is often where reliability, latency, or quality becomes visible. Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration.
+
+If you can explain how GitHub Actions pipelines connects to model diff checks, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Model drift detection
+
+Model drift detection gets easier once you stop treating data drift (PSI, KS test), concept drift, and monitoring strategies as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how data drift (PSI starts the behavior, how KS test) and concept drift change the tradeoff, and why monitoring strategies is often where reliability, latency, or quality becomes visible. Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration.
+
+If you can explain how data drift (PSI connects to monitoring strategies, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. A/B testing for ML
+
+A/B testing for ML gets easier once you stop treating shadow deployment, canary releases, statistical significance, and rollback as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how shadow deployment starts the behavior, how canary releases and statistical significance change the tradeoff, and why rollback is often where reliability, latency, or quality becomes visible. Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration.
+
+If you can explain how shadow deployment connects to rollback, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. LLM-specific MLOps
+
+LLM-specific MLOps gets easier once you stop treating prompt versioning, model comparison, and regression on eval datasets as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how prompt versioning starts the behavior, how model comparison change the tradeoff, and why regression on eval datasets is often where reliability, latency, or quality becomes visible. Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration.
+
+If you can explain how prompt versioning connects to regression on eval datasets, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Orchestration for ML
+
+Orchestration for ML gets easier once you stop treating Airflow vs Prefect vs Kubeflow vs ZenML as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Airflow vs Prefect vs Kubeflow vs ZenML starts the behavior, how the middle pieces change the tradeoff, and why Airflow vs Prefect vs Kubeflow vs ZenML is often where reliability, latency, or quality becomes visible. Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration.
+
+If you can explain how Airflow vs Prefect vs Kubeflow vs ZenML connects to Airflow vs Prefect vs Kubeflow vs ZenML, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Reproducibility engineering
+
+Reproducibility engineering gets easier once you stop treating seeds, determinism, environment pinning, and experiment hashing as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how seeds starts the behavior, how determinism and environment pinning change the tradeoff, and why experiment hashing is often where reliability, latency, or quality becomes visible. Learn the MLOps layer that keeps experiments understandable: tracking, reproducibility, lineage, and controlled iteration.
+
+If you can explain how seeds connects to experiment hashing, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> The real goal is comparability: being able to say what changed, why it changed, and whether the result is trustworthy.
+
+## Bridge to the next lessons
+
+> That reproducibility mindset supports evaluation, serving, and security later in the roadmap.
+
+## Further reading
+
+- [MLflow documentation](https://mlflow.org/docs/latest/) — Official or high-signal reference for MLOps & Experiment Tracking.
+- [W&B documentation](https://docs.wandb.ai/) — Official or high-signal reference for MLOps & Experiment Tracking.
+- [DVC documentation](https://dvc.org/doc) — Official or high-signal reference for MLOps & Experiment Tracking.
+- [Feast documentation](https://docs.feast.dev/) — Official or high-signal reference for MLOps & Experiment Tracking.
+- [ZenML documentation](https://docs.zenml.io/) — Official or high-signal reference for MLOps & Experiment Tracking.
+- [Evidently AI (drift)](https://docs.evidentlyai.com/) — Official or high-signal reference for MLOps & Experiment Tracking.

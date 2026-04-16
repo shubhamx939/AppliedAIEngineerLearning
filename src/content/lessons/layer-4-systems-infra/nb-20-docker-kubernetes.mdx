@@ -1,0 +1,216 @@
+---
+id: NB-20
+slug: nb-20-docker-kubernetes
+title: "Docker & Kubernetes for AI"
+layer: layer-4-systems-infra
+order: 20
+summary: "Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers."
+estimatedMinutes: 480
+difficulty: Advanced
+prerequisites:
+  - NB-17
+tags:
+  - docker
+  - kubernetes
+  - deployment
+  - infra
+updatedAt: "2026-04-14"
+resources:
+  - title: "Docker Python guide"
+    href: "https://docs.docker.com/guides/python/"
+    note: "Official or high-signal reference for Docker & Kubernetes for AI."
+  - title: "Docker multi-stage builds"
+    href: "https://docs.docker.com/build/building/multi-stage/"
+    note: "Official or high-signal reference for Docker & Kubernetes for AI."
+  - title: "Kubernetes deployments"
+    href: "https://kubernetes.io/docs/concepts/workloads/controllers/deployment/"
+    note: "Official or high-signal reference for Docker & Kubernetes for AI."
+  - title: "Kubernetes probes"
+    href: "https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/"
+    note: "Official or high-signal reference for Docker & Kubernetes for AI."
+  - title: "Helm documentation"
+    href: "https://helm.sh/docs/"
+    note: "Official or high-signal reference for Docker & Kubernetes for AI."
+  - title: "KEDA documentation"
+    href: "https://keda.sh/docs/"
+    note: "Official or high-signal reference for Docker & Kubernetes for AI."
+  - title: "NVIDIA GPU operator"
+    href: "https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/"
+    note: "Official or high-signal reference for Docker & Kubernetes for AI."
+---
+
+## What this lesson is really about
+
+Containers and Kubernetes often feel abstract until you connect them to actual workloads: API servers, background workers, vector services, and inference runtimes with uneven resource needs.
+
+This lesson focuses on how infra abstractions affect developer speed, operational safety, and workload placement for AI systems.
+
+## What you will understand
+
+- Understand what containers solve for AI services and what they do not.
+- Read Kubernetes primitives through the lens of model workloads and APIs.
+- Design more reliable deployment and rollout strategies.
+- Think clearly about scaling, scheduling, and resource isolation.
+
+## Why this topic matters in real AI engineering
+
+Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Multi-stage Dockerfiles
+
+Multi-stage Dockerfiles gets easier once you stop treating builder stage, runtime stage, layer caching optimization, and `.dockerignore` as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how builder stage starts the behavior, how runtime stage and layer caching optimization change the tradeoff, and why `.dockerignore` is often where reliability, latency, or quality becomes visible. Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers.
+
+If you can explain how builder stage connects to `.dockerignore`, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Container security hardening
+
+Container security hardening gets easier once you stop treating non-root users, read-only filesystems, capability dropping, and image scanning as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how non-root users starts the behavior, how read-only filesystems and capability dropping change the tradeoff, and why image scanning is often where reliability, latency, or quality becomes visible. Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers.
+
+If you can explain how non-root users connects to image scanning, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Kubernetes core objects
+
+Kubernetes core objects gets easier once you stop treating Deployment, Service, ConfigMap, Secret, Namespace, and ResourceQuota as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Deployment starts the behavior, how Service, ConfigMap, Secret, and Namespace change the tradeoff, and why ResourceQuota is often where reliability, latency, or quality becomes visible. Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers.
+
+If you can explain how Deployment connects to ResourceQuota, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Probes
+
+Probes gets easier once you stop treating liveness (crash detection), readiness (traffic gating), and startup (slow init) as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how liveness (crash detection) starts the behavior, how readiness (traffic gating) change the tradeoff, and why startup (slow init) is often where reliability, latency, or quality becomes visible. Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers.
+
+If you can explain how liveness (crash detection) connects to startup (slow init), you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Horizontal Pod Autoscaler
+
+Horizontal Pod Autoscaler gets easier once you stop treating CPU/memory based, custom metrics (token throughput), and KEDA for queues as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how CPU/memory based starts the behavior, how custom metrics (token throughput) change the tradeoff, and why KEDA for queues is often where reliability, latency, or quality becomes visible. Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers.
+
+If you can explain how CPU/memory based connects to KEDA for queues, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Helm charts
+
+Helm charts gets easier once you stop treating chart structure, values.yaml, templates, `helm install`, `helm upgrade`, and rollback as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how chart structure starts the behavior, how values.yaml, templates, `helm install`, and `helm upgrade` change the tradeoff, and why rollback is often where reliability, latency, or quality becomes visible. Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers.
+
+If you can explain how chart structure connects to rollback, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. GPU workloads on Kubernetes
+
+GPU workloads on Kubernetes gets easier once you stop treating NVIDIA device plugin, GPU node pools, resource limits, and time-slicing as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how NVIDIA device plugin starts the behavior, how GPU node pools and resource limits change the tradeoff, and why time-slicing is often where reliability, latency, or quality becomes visible. Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers.
+
+If you can explain how NVIDIA device plugin connects to time-slicing, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Secrets management in K8s
+
+Secrets management in K8s gets easier once you stop treating External Secrets Operator, Vault Agent Injector, and sealed secrets as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how External Secrets Operator starts the behavior, how Vault Agent Injector change the tradeoff, and why sealed secrets is often where reliability, latency, or quality becomes visible. Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers.
+
+If you can explain how External Secrets Operator connects to sealed secrets, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Observability stack
+
+Observability stack gets easier once you stop treating Prometheus + Grafana, log aggregation (Loki, Fluentd), and distributed tracing as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Prometheus + Grafana starts the behavior, how log aggregation (Loki and Fluentd) change the tradeoff, and why distributed tracing is often where reliability, latency, or quality becomes visible. Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers.
+
+If you can explain how Prometheus + Grafana connects to distributed tracing, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Local development clusters
+
+Local development clusters gets easier once you stop treating minikube, k3d, and kind as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how minikube starts the behavior, how k3d change the tradeoff, and why kind is often where reliability, latency, or quality becomes visible. Learn how containerization and orchestration shape the deployment story for AI APIs, retrieval services, and model workers.
+
+If you can explain how minikube connects to kind, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+## A compact example worth studying
+
+```dockerfile
+FROM python:3.12-slim
+WORKDIR /app
+COPY pyproject.toml .
+RUN pip install -U pip && pip install .
+COPY . .
+CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+This snippet is not here to impress you with completeness. It is here to give one concrete anchor for how the lesson's ideas surface in code.
+
+
+## What to remember
+
+> The real skill is translating product behavior into deployment primitives that are stable under load and change.
+
+## Bridge to the next lessons
+
+> These deployment concepts feed directly into serving, cloud platform choices, and production operations.
+
+## Further reading
+
+- [Docker Python guide](https://docs.docker.com/guides/python/) — Official or high-signal reference for Docker & Kubernetes for AI.
+- [Docker multi-stage builds](https://docs.docker.com/build/building/multi-stage/) — Official or high-signal reference for Docker & Kubernetes for AI.
+- [Kubernetes deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) — Official or high-signal reference for Docker & Kubernetes for AI.
+- [Kubernetes probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/) — Official or high-signal reference for Docker & Kubernetes for AI.
+- [Helm documentation](https://helm.sh/docs/) — Official or high-signal reference for Docker & Kubernetes for AI.
+- [KEDA documentation](https://keda.sh/docs/) — Official or high-signal reference for Docker & Kubernetes for AI.
+- [NVIDIA GPU operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/) — Official or high-signal reference for Docker & Kubernetes for AI.

@@ -1,0 +1,196 @@
+---
+id: NB-18
+slug: nb-18-state-memory-caching
+title: "State, Memory & Caching"
+layer: layer-4-systems-infra
+order: 18
+summary: "Understand state, memory, and caching as different tools for preserving continuity in AI systems."
+estimatedMinutes: 360
+difficulty: Intermediate
+prerequisites:
+  - NB-17
+tags:
+  - state
+  - memory
+  - caching
+  - session-design
+updatedAt: "2026-04-14"
+resources:
+  - title: "Redis documentation"
+    href: "https://redis.io/docs/"
+    note: "Official or high-signal reference for State, Memory & Caching."
+  - title: "Redis commands reference"
+    href: "https://redis.io/commands/"
+    note: "Official or high-signal reference for State, Memory & Caching."
+  - title: "Amazon ElastiCache getting started"
+    href: "https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/GettingStarted.html"
+    note: "Official or high-signal reference for State, Memory & Caching."
+  - title: "GPTCache"
+    href: "https://github.com/zilliztech/GPTCache"
+    note: "Official or high-signal reference for State, Memory & Caching."
+  - title: "LangGraph persistence"
+    href: "https://langchain-ai.github.io/langgraph/how-tos/persistence/"
+    note: "Official or high-signal reference for State, Memory & Caching."
+---
+
+## What this lesson is really about
+
+State and memory are often discussed as if they were the same thing. In practice, they solve different problems: continuity, speed, personalization, and cost control.
+
+This distinction matters a lot in AI applications, where context can be expensive and user trust is sensitive to stale or over-personalized behavior.
+
+## What you will understand
+
+- Separate transient session state from reusable memory and cached artifacts.
+- Choose the right storage scope for different AI interactions.
+- Understand freshness, invalidation, and privacy tradeoffs.
+- Design continuity features without creating hidden system confusion.
+
+## Why this topic matters in real AI engineering
+
+Understand state, memory, and caching as different tools for preserving continuity in AI systems. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Redis data structures
+
+Redis data structures gets easier once you stop treating strings, hashes, lists, sets, sorted sets, and streams as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how strings starts the behavior, how hashes, lists, sets, and sorted sets change the tradeoff, and why streams is often where reliability, latency, or quality becomes visible. Understand state, memory, and caching as different tools for preserving continuity in AI systems.
+
+If you can explain how strings connects to streams, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Session vs cache vs state
+
+Session vs cache vs state gets easier once you stop treating architectural differences and when to use each for AI workloads as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how architectural differences starts the behavior, how the middle pieces change the tradeoff, and why when to use each for AI workloads is often where reliability, latency, or quality becomes visible. Understand state, memory, and caching as different tools for preserving continuity in AI systems.
+
+If you can explain how architectural differences connects to when to use each for AI workloads, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. TTL strategies
+
+TTL strategies gets easier once you stop treating fixed vs sliding TTL, TTL selection formula, eviction policies (LRU, LFU, and allkeys) as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how fixed vs sliding TTL starts the behavior, how TTL selection formula, eviction policies (LRU, and LFU change the tradeoff, and why allkeys) is often where reliability, latency, or quality becomes visible. Understand state, memory, and caching as different tools for preserving continuity in AI systems.
+
+If you can explain how fixed vs sliding TTL connects to allkeys), you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Redis pub/sub & Streams
+
+Redis pub/sub & Streams gets easier once you stop treating fan-out patterns, consumer groups, and at-least-once delivery as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how fan-out patterns starts the behavior, how consumer groups change the tradeoff, and why at-least-once delivery is often where reliability, latency, or quality becomes visible. Understand state, memory, and caching as different tools for preserving continuity in AI systems.
+
+If you can explain how fan-out patterns connects to at-least-once delivery, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Distributed locks
+
+Distributed locks gets easier once you stop treating Redlock algorithm, lock TTL, fencing tokens, and deadlock prevention as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Redlock algorithm starts the behavior, how lock TTL and fencing tokens change the tradeoff, and why deadlock prevention is often where reliability, latency, or quality becomes visible. Understand state, memory, and caching as different tools for preserving continuity in AI systems.
+
+If you can explain how Redlock algorithm connects to deadlock prevention, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Conversation memory patterns
+
+Conversation memory patterns gets easier once you stop treating buffer memory, summary memory, entity memory, and LangChain integration as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how buffer memory starts the behavior, how summary memory and entity memory change the tradeoff, and why LangChain integration is often where reliability, latency, or quality becomes visible. Understand state, memory, and caching as different tools for preserving continuity in AI systems.
+
+If you can explain how buffer memory connects to LangChain integration, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Cache invalidation
+
+Cache invalidation gets easier once you stop treating write-through, write-behind, cache-aside, and read-through patterns as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how write-through starts the behavior, how write-behind and cache-aside change the tradeoff, and why read-through patterns is often where reliability, latency, or quality becomes visible. Understand state, memory, and caching as different tools for preserving continuity in AI systems.
+
+If you can explain how write-through connects to read-through patterns, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Cache stampede prevention
+
+Cache stampede prevention gets easier once you stop treating mutex locks, probabilistic early expiration, and request coalescing as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how mutex locks starts the behavior, how probabilistic early expiration change the tradeoff, and why request coalescing is often where reliability, latency, or quality becomes visible. Understand state, memory, and caching as different tools for preserving continuity in AI systems.
+
+If you can explain how mutex locks connects to request coalescing, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. LLM response caching
+
+LLM response caching gets easier once you stop treating semantic caching with embeddings, exact cache, and GPTCache architecture as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how semantic caching with embeddings starts the behavior, how exact cache change the tradeoff, and why GPTCache architecture is often where reliability, latency, or quality becomes visible. Understand state, memory, and caching as different tools for preserving continuity in AI systems.
+
+If you can explain how semantic caching with embeddings connects to GPTCache architecture, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Agent state persistence
+
+Agent state persistence gets easier once you stop treating LangGraph checkpointing, SQLite vs PostgreSQL backends, and state schema versioning as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how LangGraph checkpointing starts the behavior, how SQLite vs PostgreSQL backends change the tradeoff, and why state schema versioning is often where reliability, latency, or quality becomes visible. Understand state, memory, and caching as different tools for preserving continuity in AI systems.
+
+If you can explain how LangGraph checkpointing connects to state schema versioning, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> The key is choosing what should be remembered, what should merely be cached, and what should be forgotten on purpose.
+
+## Bridge to the next lessons
+
+> These concepts show up again in long-context systems, GraphRAG, and evaluation of conversational products.
+
+## Further reading
+
+- [Redis documentation](https://redis.io/docs/) — Official or high-signal reference for State, Memory & Caching.
+- [Redis commands reference](https://redis.io/commands/) — Official or high-signal reference for State, Memory & Caching.
+- [Amazon ElastiCache getting started](https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/GettingStarted.html) — Official or high-signal reference for State, Memory & Caching.
+- [GPTCache](https://github.com/zilliztech/GPTCache) — Official or high-signal reference for State, Memory & Caching.
+- [LangGraph persistence](https://langchain-ai.github.io/langgraph/how-tos/persistence/) — Official or high-signal reference for State, Memory & Caching.

@@ -1,0 +1,200 @@
+---
+id: NB-15
+slug: nb-15-vector-databases
+title: "Vector Databases"
+layer: layer-4-systems-infra
+order: 15
+summary: "Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns."
+estimatedMinutes: 480
+difficulty: Advanced
+prerequisites:
+  - NB-14
+tags:
+  - vector-db
+  - ann
+  - embeddings
+  - retrieval
+updatedAt: "2026-04-14"
+resources:
+  - title: "Pinecone documentation"
+    href: "https://docs.pinecone.io/"
+    note: "Official or high-signal reference for Vector Databases."
+  - title: "Weaviate documentation"
+    href: "https://weaviate.io/developers/weaviate"
+    note: "Official or high-signal reference for Vector Databases."
+  - title: "Qdrant documentation"
+    href: "https://qdrant.tech/documentation/"
+    note: "Official or high-signal reference for Vector Databases."
+  - title: "Chroma documentation"
+    href: "https://docs.trychroma.com/"
+    note: "Official or high-signal reference for Vector Databases."
+  - title: "pgvector GitHub"
+    href: "https://github.com/pgvector/pgvector"
+    note: "Official or high-signal reference for Vector Databases."
+  - title: "FAISS documentation"
+    href: "https://faiss.ai/"
+    note: "Official or high-signal reference for Vector Databases."
+---
+
+## What this lesson is really about
+
+A vector database is not magic similarity dust. It is a set of indexing decisions and storage tradeoffs that shape retrieval quality and latency in concrete ways.
+
+If you know how the store behaves internally, debugging recall problems and tuning throughput becomes far easier.
+
+## What you will understand
+
+- Understand what vector stores are optimizing for under the hood.
+- Compare approximate nearest neighbor strategies more meaningfully.
+- Choose metrics and filtering patterns that align with task goals.
+- Think about recall, latency, freshness, and cost together.
+
+## Why this topic matters in real AI engineering
+
+Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. ANN algorithms
+
+ANN algorithms gets easier once you stop treating HNSW internals, IVF-PQ, ScaNN, and FAISS as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how HNSW internals starts the behavior, how IVF-PQ and ScaNN change the tradeoff, and why FAISS is often where reliability, latency, or quality becomes visible. Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns.
+
+If you can explain how HNSW internals connects to FAISS, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Pinecone
+
+Pinecone gets easier once you stop treating serverless vs pod-based, namespaces, metadata filtering, and hybrid search as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how serverless vs pod-based starts the behavior, how namespaces and metadata filtering change the tradeoff, and why hybrid search is often where reliability, latency, or quality becomes visible. Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns.
+
+If you can explain how serverless vs pod-based connects to hybrid search, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Weaviate
+
+Weaviate gets easier once you stop treating graph-native architecture, modules, generative search, and multi-tenancy as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how graph-native architecture starts the behavior, how modules and generative search change the tradeoff, and why multi-tenancy is often where reliability, latency, or quality becomes visible. Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns.
+
+If you can explain how graph-native architecture connects to multi-tenancy, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Qdrant
+
+Qdrant gets easier once you stop treating payload filtering, named vectors, sparse-dense hybrid, and quantization as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how payload filtering starts the behavior, how named vectors and sparse-dense hybrid change the tradeoff, and why quantization is often where reliability, latency, or quality becomes visible. Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns.
+
+If you can explain how payload filtering connects to quantization, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Chroma
+
+Chroma gets easier once you stop treating local dev, persistent client, embedding functions, and metadata filtering as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how local dev starts the behavior, how persistent client and embedding functions change the tradeoff, and why metadata filtering is often where reliability, latency, or quality becomes visible. Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns.
+
+If you can explain how local dev connects to metadata filtering, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. pgvector
+
+pgvector gets easier once you stop treating Postgres extension, index types (HNSW, IVF), exact vs approximate, and combining with SQL as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Postgres extension starts the behavior, how index types (HNSW, IVF), and exact vs approximate change the tradeoff, and why combining with SQL is often where reliability, latency, or quality becomes visible. Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns.
+
+If you can explain how Postgres extension connects to combining with SQL, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Embedding dimension selection
+
+Embedding dimension selection gets easier once you stop treating quality vs cost vs latency tradeoff at different dimensions as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how quality vs cost vs latency tradeoff at different dimensions starts the behavior, how the middle pieces change the tradeoff, and why quality vs cost vs latency tradeoff at different dimensions is often where reliability, latency, or quality becomes visible. Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns.
+
+If you can explain how quality vs cost vs latency tradeoff at different dimensions connects to quality vs cost vs latency tradeoff at different dimensions, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Index tuning
+
+Index tuning gets easier once you stop treating ef_construction, m parameter, and ef_search as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how ef_construction starts the behavior, how m parameter change the tradeoff, and why ef_search is often where reliability, latency, or quality becomes visible. Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns.
+
+If you can explain how ef_construction connects to ef_search, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Multi-vector retrieval
+
+Multi-vector retrieval gets easier once you stop treating ColBERT, PLAID, and late interaction models as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how ColBERT starts the behavior, how PLAID change the tradeoff, and why late interaction models is often where reliability, latency, or quality becomes visible. Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns.
+
+If you can explain how ColBERT connects to late interaction models, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Production considerations
+
+Production considerations gets easier once you stop treating index size estimation, sharding, backup, and migration strategies as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how index size estimation starts the behavior, how sharding and backup change the tradeoff, and why migration strategies is often where reliability, latency, or quality becomes visible. Study vector databases through indexing, distance metrics, storage tradeoffs, and operational usage patterns.
+
+If you can explain how index size estimation connects to migration strategies, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> The durable mental model is retrieval as geometry plus infrastructure constraints.
+
+## Bridge to the next lessons
+
+> That view connects directly to RAG quality, hybrid search, and long-context memory systems.
+
+## Further reading
+
+- [Pinecone documentation](https://docs.pinecone.io/) — Official or high-signal reference for Vector Databases.
+- [Weaviate documentation](https://weaviate.io/developers/weaviate) — Official or high-signal reference for Vector Databases.
+- [Qdrant documentation](https://qdrant.tech/documentation/) — Official or high-signal reference for Vector Databases.
+- [Chroma documentation](https://docs.trychroma.com/) — Official or high-signal reference for Vector Databases.
+- [pgvector GitHub](https://github.com/pgvector/pgvector) — Official or high-signal reference for Vector Databases.
+- [FAISS documentation](https://faiss.ai/) — Official or high-signal reference for Vector Databases.

@@ -1,0 +1,236 @@
+---
+id: NB-14
+slug: nb-14-rag-knowledge-systems
+title: "RAG & Knowledge Systems"
+layer: layer-4-systems-infra
+order: 14
+summary: "Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis."
+estimatedMinutes: 720
+difficulty: Advanced
+prerequisites:
+  - NB-07
+  - NB-13
+tags:
+  - rag
+  - retrieval
+  - knowledge-systems
+  - search
+updatedAt: "2026-04-14"
+resources:
+  - title: "LlamaIndex documentation"
+    href: "https://docs.llamaindex.ai/"
+    note: "Official or high-signal reference for RAG & Knowledge Systems."
+  - title: "LangChain RAG tutorial"
+    href: "https://python.langchain.com/docs/tutorials/rag/"
+    note: "Official or high-signal reference for RAG & Knowledge Systems."
+  - title: "RAGAS documentation"
+    href: "https://docs.ragas.io/"
+    note: "Official or high-signal reference for RAG & Knowledge Systems."
+  - title: "Microsoft GraphRAG"
+    href: "https://microsoft.github.io/graphrag/"
+    note: "Official or high-signal reference for RAG & Knowledge Systems."
+  - title: "Cohere Rerank"
+    href: "https://docs.cohere.com/docs/rerank-2"
+    note: "Official or high-signal reference for RAG & Knowledge Systems."
+  - title: "HyDE paper"
+    href: "https://arxiv.org/abs/2212.10496"
+    note: "Official or high-signal reference for RAG & Knowledge Systems."
+  - title: "FLARE paper"
+    href: "https://arxiv.org/abs/2305.06983"
+    note: "Official or high-signal reference for RAG & Knowledge Systems."
+---
+
+## What this lesson is really about
+
+RAG is not a single trick. It is a set of retrieval, storage, ranking, and generation decisions that either cooperate well or quietly sabotage each other.
+
+Most failures blamed on generation are often retrieval or chunking problems upstream. This lesson helps you see the whole path.
+
+## What you will understand
+
+- Explain the full RAG pipeline from ingestion to answer assembly.
+- Choose chunking and ranking strategies with clearer tradeoff awareness.
+- Diagnose retrieval failures instead of blaming the model generically.
+- Design grounded knowledge experiences that stay maintainable.
+
+## Why this topic matters in real AI engineering
+
+Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Naive RAG pipeline
+
+Naive RAG pipeline gets easier once you stop treating query → embed → retrieve → augment → generate and failure points as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how query → embed → retrieve → augment → generate starts the behavior, how the middle pieces change the tradeoff, and why failure points is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how query → embed → retrieve → augment → generate connects to failure points, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Document parsing
+
+Document parsing gets easier once you stop treating PDF, HTML, DOCX parsing, table extraction, and layout-aware parsing as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how PDF starts the behavior, how HTML, DOCX parsing, and table extraction change the tradeoff, and why layout-aware parsing is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how PDF connects to layout-aware parsing, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Chunking strategies
+
+Chunking strategies gets easier once you stop treating fixed-size, sentence, paragraph, semantic, recursive, and parent-child chunks as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how fixed-size starts the behavior, how sentence, paragraph, semantic, and recursive change the tradeoff, and why parent-child chunks is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how fixed-size connects to parent-child chunks, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Embedding models
+
+Embedding models gets easier once you stop treating OpenAI, Cohere, E5-large, BGE, and GTE as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how OpenAI starts the behavior, how Cohere, E5-large, and BGE change the tradeoff, and why GTE is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how OpenAI connects to GTE, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Advanced RAG
+
+Advanced RAG gets easier once you stop treating HyDE (Hypothetical Document Embeddings), RAG-fusion, and multi-query retrieval as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how HyDE (Hypothetical Document Embeddings) starts the behavior, how RAG-fusion change the tradeoff, and why multi-query retrieval is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how HyDE (Hypothetical Document Embeddings) connects to multi-query retrieval, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Re-ranking
+
+Re-ranking gets easier once you stop treating cross-encoders (BGE-reranker, Cohere Rerank), and bi-encoder vs cross-encoder tradeoff as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how cross-encoders (BGE-reranker starts the behavior, how Cohere Rerank) change the tradeoff, and why bi-encoder vs cross-encoder tradeoff is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how cross-encoders (BGE-reranker connects to bi-encoder vs cross-encoder tradeoff, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Hybrid search
+
+Hybrid search gets easier once you stop treating BM25 + dense retrieval, RRF (Reciprocal Rank Fusion), and keyword fallback as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how BM25 + dense retrieval starts the behavior, how RRF (Reciprocal Rank Fusion) change the tradeoff, and why keyword fallback is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how BM25 + dense retrieval connects to keyword fallback, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Agentic RAG
+
+Agentic RAG gets easier once you stop treating self-querying, query planning, iterative refinement, and FLARE as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how self-querying starts the behavior, how query planning and iterative refinement change the tradeoff, and why FLARE is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how self-querying connects to FLARE, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Contextual compression
+
+Contextual compression gets easier once you stop treating LLMChainExtractor, EmbeddingsFilter, and contextual chunking as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how LLMChainExtractor starts the behavior, how EmbeddingsFilter change the tradeoff, and why contextual chunking is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how LLMChainExtractor connects to contextual chunking, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. GraphRAG
+
+GraphRAG gets easier once you stop treating Microsoft GraphRAG, entity extraction, community summaries, and global vs local search as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Microsoft GraphRAG starts the behavior, how entity extraction and community summaries change the tradeoff, and why global vs local search is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how Microsoft GraphRAG connects to global vs local search, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 11. RAG evaluation
+
+RAG evaluation gets easier once you stop treating RAGAS metrics (faithfulness, answer relevancy, and context precision/recall) as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how RAGAS metrics (faithfulness starts the behavior, how answer relevancy change the tradeoff, and why context precision/recall) is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how RAGAS metrics (faithfulness connects to context precision/recall), you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 12. RAG failure modes
+
+RAG failure modes gets easier once you stop treating context stuffing, retrieval miss, hallucination on context, and relevancy drift as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how context stuffing starts the behavior, how retrieval miss and hallucination on context change the tradeoff, and why relevancy drift is often where reliability, latency, or quality becomes visible. Understand retrieval-augmented generation as a full knowledge system: indexing, chunking, ranking, grounding, and answer synthesis.
+
+If you can explain how context stuffing connects to relevancy drift, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+## A compact example worth studying
+
+```text
+question -> rewrite -> retrieve -> rerank -> assemble context -> answer -> cite sources
+```
+
+This snippet is not here to impress you with completeness. It is here to give one concrete anchor for how the lesson's ideas surface in code.
+
+
+## What to remember
+
+> Treat retrieval as the product's memory system, not as a bolt-on search step.
+
+## Bridge to the next lessons
+
+> Vector databases, evaluation, observability, and long-context methods all build on these retrieval instincts.
+
+## Further reading
+
+- [LlamaIndex documentation](https://docs.llamaindex.ai/) — Official or high-signal reference for RAG & Knowledge Systems.
+- [LangChain RAG tutorial](https://python.langchain.com/docs/tutorials/rag/) — Official or high-signal reference for RAG & Knowledge Systems.
+- [RAGAS documentation](https://docs.ragas.io/) — Official or high-signal reference for RAG & Knowledge Systems.
+- [Microsoft GraphRAG](https://microsoft.github.io/graphrag/) — Official or high-signal reference for RAG & Knowledge Systems.
+- [Cohere Rerank](https://docs.cohere.com/docs/rerank-2) — Official or high-signal reference for RAG & Knowledge Systems.
+- [HyDE paper](https://arxiv.org/abs/2212.10496) — Official or high-signal reference for RAG & Knowledge Systems.
+- [FLARE paper](https://arxiv.org/abs/2305.06983) — Official or high-signal reference for RAG & Knowledge Systems.

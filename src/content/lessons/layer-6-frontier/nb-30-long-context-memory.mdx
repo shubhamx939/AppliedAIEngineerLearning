@@ -1,0 +1,197 @@
+---
+id: NB-30
+slug: nb-30-long-context-memory
+title: "Long Context, Memory & GraphRAG"
+layer: layer-6-frontier
+order: 30
+summary: "Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence."
+estimatedMinutes: 480
+difficulty: Advanced
+prerequisites:
+  - NB-14
+  - NB-15
+tags:
+  - long-context
+  - memory
+  - graphrag
+  - retrieval
+updatedAt: "2026-04-14"
+resources:
+  - title: "MemGPT paper"
+    href: "https://arxiv.org/abs/2310.08560"
+    note: "Official or high-signal reference for Long Context, Memory & GraphRAG."
+  - title: "LLMLingua-2"
+    href: "https://github.com/microsoft/LLMLingua"
+    note: "Official or high-signal reference for Long Context, Memory & GraphRAG."
+  - title: "Microsoft GraphRAG"
+    href: "https://microsoft.github.io/graphrag/"
+    note: "Official or high-signal reference for Long Context, Memory & GraphRAG."
+  - title: "GraphRAG paper"
+    href: "https://arxiv.org/abs/2404.16130"
+    note: "Official or high-signal reference for Long Context, Memory & GraphRAG."
+  - title: "Letta (MemGPT production)"
+    href: "https://docs.letta.com/"
+    note: "Official or high-signal reference for Long Context, Memory & GraphRAG."
+---
+
+## What this lesson is really about
+
+As context windows expand, the design question shifts from can I fit more tokens to should I solve this with retrieval, memory, graphs, or brute-force context at all.
+
+This lesson matters because many product teams confuse bigger windows with solved memory. In practice, persistence and relevance are still architecture choices.
+
+## What you will understand
+
+- Compare retrieval, compression, memory, and long-context expansion strategies.
+- Understand what long context solves and what it still does not solve.
+- Reason about graph-enhanced retrieval and relational memory systems.
+- Choose the right persistence strategy for different AI product behaviors.
+
+## Why this topic matters in real AI engineering
+
+Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Long-context models
+
+Long-context models gets easier once you stop treating Claude 3.5 (200K), Gemini 1.5 (1M), and Llama-3.1 (128K) as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Claude 3.5 (200K) starts the behavior, how Gemini 1.5 (1M) change the tradeoff, and why Llama-3.1 (128K) is often where reliability, latency, or quality becomes visible. Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence.
+
+If you can explain how Claude 3.5 (200K) connects to Llama-3.1 (128K), you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Lost-in-the-middle problem
+
+Lost-in-the-middle problem gets easier once you stop treating retrieval position effects, mitigation strategies, and context structuring as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how retrieval position effects starts the behavior, how mitigation strategies change the tradeoff, and why context structuring is often where reliability, latency, or quality becomes visible. Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence.
+
+If you can explain how retrieval position effects connects to context structuring, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Context compression
+
+Context compression gets easier once you stop treating LLMLingua-2, Recomp, selective compression, and hierarchical summarization as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how LLMLingua-2 starts the behavior, how Recomp and selective compression change the tradeoff, and why hierarchical summarization is often where reliability, latency, or quality becomes visible. Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence.
+
+If you can explain how LLMLingua-2 connects to hierarchical summarization, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. MemGPT architecture
+
+MemGPT architecture gets easier once you stop treating OS-inspired memory management and main context vs external storage as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how OS-inspired memory management starts the behavior, how the middle pieces change the tradeoff, and why main context vs external storage is often where reliability, latency, or quality becomes visible. Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence.
+
+If you can explain how OS-inspired memory management connects to main context vs external storage, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. A-MEM & agent memory architectures
+
+A-MEM & agent memory architectures gets easier once you stop treating dynamic memory formation and memory retrieval for agents as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how dynamic memory formation starts the behavior, how the middle pieces change the tradeoff, and why memory retrieval for agents is often where reliability, latency, or quality becomes visible. Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence.
+
+If you can explain how dynamic memory formation connects to memory retrieval for agents, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Episodic memory for agents
+
+Episodic memory for agents gets easier once you stop treating session memory, cross-session memory, and memory consolidation as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how session memory starts the behavior, how cross-session memory change the tradeoff, and why memory consolidation is often where reliability, latency, or quality becomes visible. Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence.
+
+If you can explain how session memory connects to memory consolidation, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. GraphRAG
+
+GraphRAG gets easier once you stop treating entity extraction, relationship mapping, community detection, and global vs local queries as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how entity extraction starts the behavior, how relationship mapping and community detection change the tradeoff, and why global vs local queries is often where reliability, latency, or quality becomes visible. Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence.
+
+If you can explain how entity extraction connects to global vs local queries, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Temporal knowledge graphs
+
+Temporal knowledge graphs gets easier once you stop treating time-aware retrieval, knowledge decay, and fact expiration as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how time-aware retrieval starts the behavior, how knowledge decay change the tradeoff, and why fact expiration is often where reliability, latency, or quality becomes visible. Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence.
+
+If you can explain how time-aware retrieval connects to fact expiration, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Memory evaluation
+
+Memory evaluation gets easier once you stop treating memory recall accuracy, consistency across sessions, and memory capacity tests as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how memory recall accuracy starts the behavior, how consistency across sessions change the tradeoff, and why memory capacity tests is often where reliability, latency, or quality becomes visible. Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence.
+
+If you can explain how memory recall accuracy connects to memory capacity tests, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Production memory systems
+
+Production memory systems gets easier once you stop treating cost vs capability tradeoff and memory for multi-user systems as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how cost vs capability tradeoff starts the behavior, how the middle pieces change the tradeoff, and why memory for multi-user systems is often where reliability, latency, or quality becomes visible. Study long-context systems, memory architectures, and GraphRAG as competing and complementary answers to knowledge persistence.
+
+If you can explain how cost vs capability tradeoff connects to memory for multi-user systems, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> Long context is powerful, but it is only one option in the broader memory design toolbox.
+
+## Bridge to the next lessons
+
+> This capstone lesson ties together retrieval, state, vector systems, and frontier model behavior.
+
+## Further reading
+
+- [MemGPT paper](https://arxiv.org/abs/2310.08560) — Official or high-signal reference for Long Context, Memory & GraphRAG.
+- [LLMLingua-2](https://github.com/microsoft/LLMLingua) — Official or high-signal reference for Long Context, Memory & GraphRAG.
+- [Microsoft GraphRAG](https://microsoft.github.io/graphrag/) — Official or high-signal reference for Long Context, Memory & GraphRAG.
+- [GraphRAG paper](https://arxiv.org/abs/2404.16130) — Official or high-signal reference for Long Context, Memory & GraphRAG.
+- [Letta (MemGPT production)](https://docs.letta.com/) — Official or high-signal reference for Long Context, Memory & GraphRAG.

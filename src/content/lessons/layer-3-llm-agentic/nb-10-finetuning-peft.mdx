@@ -1,0 +1,201 @@
+---
+id: NB-10
+slug: nb-10-finetuning-peft
+title: "Fine-Tuning & PEFT"
+layer: layer-3-llm-agentic
+order: 10
+summary: "Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains."
+estimatedMinutes: 600
+difficulty: Advanced
+prerequisites:
+  - NB-08
+  - NB-09
+tags:
+  - finetuning
+  - peft
+  - lora
+  - training-data
+updatedAt: "2026-04-14"
+resources:
+  - title: "HuggingFace PEFT library"
+    href: "https://huggingface.co/docs/peft/"
+    note: "Official or high-signal reference for Fine-Tuning & PEFT."
+  - title: "HuggingFace TRL library"
+    href: "https://huggingface.co/docs/trl/"
+    note: "Official or high-signal reference for Fine-Tuning & PEFT."
+  - title: "unsloth documentation"
+    href: "https://github.com/unslothai/unsloth"
+    note: "Official or high-signal reference for Fine-Tuning & PEFT."
+  - title: "QLoRA paper"
+    href: "https://arxiv.org/abs/2305.14314"
+    note: "Official or high-signal reference for Fine-Tuning & PEFT."
+  - title: "DPO paper"
+    href: "https://arxiv.org/abs/2305.18290"
+    note: "Official or high-signal reference for Fine-Tuning & PEFT."
+  - title: "DeepSpeed documentation"
+    href: "https://deepspeed.readthedocs.io/"
+    note: "Official or high-signal reference for Fine-Tuning & PEFT."
+---
+
+## What this lesson is really about
+
+Fine-tuning is expensive in the wrong hands and extremely powerful in the right context. The trick is to treat it as a data-and-objective problem first, not a hardware flex.
+
+Many teams tune too early, or tune without clear evaluation criteria. This lesson aims to make fine-tuning a deliberate engineering choice.
+
+## What you will understand
+
+- Distinguish when prompting is enough and when tuning is justified.
+- Understand LoRA, adapters, and PEFT as memory and optimization choices.
+- Prepare training data with stronger task alignment.
+- Reason about quality, cost, and deployment consequences of tuning.
+
+## Why this topic matters in real AI engineering
+
+Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Full fine-tuning vs PEFT
+
+Full fine-tuning vs PEFT gets easier once you stop treating parameter count comparison and when full FT is worth it as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how parameter count comparison starts the behavior, how the middle pieces change the tradeoff, and why when full FT is worth it is often where reliability, latency, or quality becomes visible. Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains.
+
+If you can explain how parameter count comparison connects to when full FT is worth it, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. LoRA internals
+
+LoRA internals gets easier once you stop treating low-rank decomposition, rank selection, alpha scaling, and target modules as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how low-rank decomposition starts the behavior, how rank selection and alpha scaling change the tradeoff, and why target modules is often where reliability, latency, or quality becomes visible. Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains.
+
+If you can explain how low-rank decomposition connects to target modules, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. QLoRA
+
+QLoRA gets easier once you stop treating 4-bit NormalFloat quantization, double quantization, and paged optimizers as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how 4-bit NormalFloat quantization starts the behavior, how double quantization change the tradeoff, and why paged optimizers is often where reliability, latency, or quality becomes visible. Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains.
+
+If you can explain how 4-bit NormalFloat quantization connects to paged optimizers, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Instruction tuning
+
+Instruction tuning gets easier once you stop treating dataset format (Alpaca, ShareGPT, ChatML), and quality over quantity principle as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how dataset format (Alpaca starts the behavior, how ShareGPT and ChatML) change the tradeoff, and why quality over quantity principle is often where reliability, latency, or quality becomes visible. Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains.
+
+If you can explain how dataset format (Alpaca connects to quality over quantity principle, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. DPO (Direct Preference Optimization)
+
+DPO (Direct Preference Optimization) gets easier once you stop treating how it replaces PPO+RM, dataset format, and loss function as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how how it replaces PPO+RM starts the behavior, how dataset format change the tradeoff, and why loss function is often where reliability, latency, or quality becomes visible. Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains.
+
+If you can explain how how it replaces PPO+RM connects to loss function, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. ORPO & SimPO
+
+ORPO & SimPO gets easier once you stop treating 2024-2025 preference optimization advances and comparison to DPO as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how 2024-2025 preference optimization advances starts the behavior, how the middle pieces change the tradeoff, and why comparison to DPO is often where reliability, latency, or quality becomes visible. Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains.
+
+If you can explain how 2024-2025 preference optimization advances connects to comparison to DPO, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Dataset curation
+
+Dataset curation gets easier once you stop treating quality filtering, deduplication (MinHash), diversity sampling, and data mixing as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how quality filtering starts the behavior, how deduplication (MinHash) and diversity sampling change the tradeoff, and why data mixing is often where reliability, latency, or quality becomes visible. Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains.
+
+If you can explain how quality filtering connects to data mixing, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Training infrastructure
+
+Training infrastructure gets easier once you stop treating unsloth for efficiency, DeepSpeed ZeRO stages, and gradient checkpointing as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how unsloth for efficiency starts the behavior, how DeepSpeed ZeRO stages change the tradeoff, and why gradient checkpointing is often where reliability, latency, or quality becomes visible. Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains.
+
+If you can explain how unsloth for efficiency connects to gradient checkpointing, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Evaluation of fine-tuned models
+
+Evaluation of fine-tuned models gets easier once you stop treating task-specific benchmarks, alignment evaluation, and regression testing as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how task-specific benchmarks starts the behavior, how alignment evaluation change the tradeoff, and why regression testing is often where reliability, latency, or quality becomes visible. Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains.
+
+If you can explain how task-specific benchmarks connects to regression testing, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Serving fine-tuned models
+
+Serving fine-tuned models gets easier once you stop treating LoRA adapter merging, PEFT serving with vLLM, and adapter switching as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how LoRA adapter merging starts the behavior, how PEFT serving with vLLM change the tradeoff, and why adapter switching is often where reliability, latency, or quality becomes visible. Learn when and how to fine-tune modern models with parameter-efficient methods, data discipline, and clear expectations about gains.
+
+If you can explain how LoRA adapter merging connects to adapter switching, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> The essential question is always the same: what behavior gap remains after strong prompting, retrieval, and context design?
+
+## Bridge to the next lessons
+
+> These ideas connect naturally to model families, structured outputs, and system evaluation.
+
+## Further reading
+
+- [HuggingFace PEFT library](https://huggingface.co/docs/peft/) — Official or high-signal reference for Fine-Tuning & PEFT.
+- [HuggingFace TRL library](https://huggingface.co/docs/trl/) — Official or high-signal reference for Fine-Tuning & PEFT.
+- [unsloth documentation](https://github.com/unslothai/unsloth) — Official or high-signal reference for Fine-Tuning & PEFT.
+- [QLoRA paper](https://arxiv.org/abs/2305.14314) — Official or high-signal reference for Fine-Tuning & PEFT.
+- [DPO paper](https://arxiv.org/abs/2305.18290) — Official or high-signal reference for Fine-Tuning & PEFT.
+- [DeepSpeed documentation](https://deepspeed.readthedocs.io/) — Official or high-signal reference for Fine-Tuning & PEFT.

@@ -1,0 +1,218 @@
+---
+id: NB-21
+slug: nb-21-evaluation-observability
+title: "LLM Evaluation & Observability"
+layer: layer-5-production
+order: 21
+summary: "Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions."
+estimatedMinutes: 600
+difficulty: Advanced
+prerequisites:
+  - NB-12
+  - NB-14
+tags:
+  - evaluation
+  - observability
+  - llmops
+  - quality
+updatedAt: "2026-04-14"
+resources:
+  - title: "Langfuse documentation"
+    href: "https://langfuse.com/docs/"
+    note: "Official or high-signal reference for LLM Evaluation & Observability."
+  - title: "Langfuse evaluation overview"
+    href: "https://langfuse.com/docs/scores/overview"
+    note: "Official or high-signal reference for LLM Evaluation & Observability."
+  - title: "Langfuse LLM-as-a-judge"
+    href: "https://langfuse.com/docs/scores/model-based-evals"
+    note: "Official or high-signal reference for LLM Evaluation & Observability."
+  - title: "RAGAS documentation"
+    href: "https://docs.ragas.io/"
+    note: "Official or high-signal reference for LLM Evaluation & Observability."
+  - title: "DeepEval documentation"
+    href: "https://docs.confident-ai.com/"
+    note: "Official or high-signal reference for LLM Evaluation & Observability."
+  - title: "Arize Phoenix"
+    href: "https://docs.arize.com/phoenix"
+    note: "Official or high-signal reference for LLM Evaluation & Observability."
+  - title: "OpenTelemetry LLM semantic conventions"
+    href: "https://opentelemetry.io/docs/specs/semconv/gen-ai/"
+    note: "Official or high-signal reference for LLM Evaluation & Observability."
+---
+
+## What this lesson is really about
+
+LLM products are hard to improve when every judgment stays qualitative. Evaluation and observability give you a language for quality, failure, and change over time.
+
+This lesson matters because prompt tweaks, retrieval changes, and model swaps all look promising until a disciplined measurement system says otherwise.
+
+## What you will understand
+
+- Design evaluation sets that reflect real product behavior.
+- Track operational metrics without losing task-level quality signals.
+- Recognize the difference between anecdotal wins and real regressions.
+- Understand observability as a feedback loop, not a logging checklist.
+
+## Why this topic matters in real AI engineering
+
+Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Evaluation taxonomy
+
+Evaluation taxonomy gets easier once you stop treating offline eval, online eval, human eval, and automated eval as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how offline eval starts the behavior, how online eval and human eval change the tradeoff, and why automated eval is often where reliability, latency, or quality becomes visible. Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions.
+
+If you can explain how offline eval connects to automated eval, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. RAGAS
+
+RAGAS gets easier once you stop treating faithfulness, answer relevancy, context precision, and context recall as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how faithfulness starts the behavior, how answer relevancy and context precision change the tradeoff, and why context recall is often where reliability, latency, or quality becomes visible. Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions.
+
+If you can explain how faithfulness connects to context recall, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. DeepEval
+
+DeepEval gets easier once you stop treating test cases, metrics, `assert_test`, CI integration, and custom metrics as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how test cases starts the behavior, how metrics, `assert_test`, and CI integration change the tradeoff, and why custom metrics is often where reliability, latency, or quality becomes visible. Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions.
+
+If you can explain how test cases connects to custom metrics, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. LLM-as-a-judge
+
+LLM-as-a-judge gets easier once you stop treating G-Eval, Prometheus-eval, judge prompt design, position bias, and self-consistency as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how G-Eval starts the behavior, how Prometheus-eval, judge prompt design, and position bias change the tradeoff, and why self-consistency is often where reliability, latency, or quality becomes visible. Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions.
+
+If you can explain how G-Eval connects to self-consistency, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Regression test suites
+
+Regression test suites gets easier once you stop treating golden dataset construction, change detection, and score thresholds as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how golden dataset construction starts the behavior, how change detection change the tradeoff, and why score thresholds is often where reliability, latency, or quality becomes visible. Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions.
+
+If you can explain how golden dataset construction connects to score thresholds, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Langfuse
+
+Langfuse gets easier once you stop treating traces, spans, observations, scores, datasets, and prompt management as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how traces starts the behavior, how spans, observations, scores, and datasets change the tradeoff, and why prompt management is often where reliability, latency, or quality becomes visible. Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions.
+
+If you can explain how traces connects to prompt management, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Arize Phoenix
+
+Arize Phoenix gets easier once you stop treating LLM tracing, embedding drift, cluster analysis, and span-level evaluation as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how LLM tracing starts the behavior, how embedding drift and cluster analysis change the tradeoff, and why span-level evaluation is often where reliability, latency, or quality becomes visible. Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions.
+
+If you can explain how LLM tracing connects to span-level evaluation, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. OpenTelemetry for AI
+
+OpenTelemetry for AI gets easier once you stop treating instrumentation, trace propagation, and span attributes for LLMs (OTEL semconv) as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how instrumentation starts the behavior, how trace propagation change the tradeoff, and why span attributes for LLMs (OTEL semconv) is often where reliability, latency, or quality becomes visible. Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions.
+
+If you can explain how instrumentation connects to span attributes for LLMs (OTEL semconv), you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Structured logging
+
+Structured logging gets easier once you stop treating correlation IDs, trace IDs, log levels for AI workloads, and JSON logging as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how correlation IDs starts the behavior, how trace IDs and log levels for AI workloads change the tradeoff, and why JSON logging is often where reliability, latency, or quality becomes visible. Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions.
+
+If you can explain how correlation IDs connects to JSON logging, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Release gates
+
+Release gates gets easier once you stop treating eval pass/fail criteria, automated promotion, and rollback triggers as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how eval pass/fail criteria starts the behavior, how automated promotion change the tradeoff, and why rollback triggers is often where reliability, latency, or quality becomes visible. Build a rigorous evaluation and observability mindset for LLM systems across quality, cost, latency, and regressions.
+
+If you can explain how eval pass/fail criteria connects to rollback triggers, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+## A compact example worth studying
+
+```json
+{
+  "prompt_version": "v12",
+  "retrieval_profile": "hybrid-rerank",
+  "task_score": 0.82,
+  "groundedness": 0.91,
+  "latency_ms": 1640
+}
+```
+
+This snippet is not here to impress you with completeness. It is here to give one concrete anchor for how the lesson's ideas surface in code.
+
+
+## What to remember
+
+> Good evaluation systems shrink ambiguity. They do not remove judgment, but they make judgment repeatable.
+
+## Bridge to the next lessons
+
+> That measurement mindset becomes essential in safety, system design, and serving decisions.
+
+## Further reading
+
+- [Langfuse documentation](https://langfuse.com/docs/) — Official or high-signal reference for LLM Evaluation & Observability.
+- [Langfuse evaluation overview](https://langfuse.com/docs/scores/overview) — Official or high-signal reference for LLM Evaluation & Observability.
+- [Langfuse LLM-as-a-judge](https://langfuse.com/docs/scores/model-based-evals) — Official or high-signal reference for LLM Evaluation & Observability.
+- [RAGAS documentation](https://docs.ragas.io/) — Official or high-signal reference for LLM Evaluation & Observability.
+- [DeepEval documentation](https://docs.confident-ai.com/) — Official or high-signal reference for LLM Evaluation & Observability.
+- [Arize Phoenix](https://docs.arize.com/phoenix) — Official or high-signal reference for LLM Evaluation & Observability.
+- [OpenTelemetry LLM semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) — Official or high-signal reference for LLM Evaluation & Observability.

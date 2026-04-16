@@ -1,0 +1,207 @@
+---
+id: NB-25
+slug: nb-25-model-serving-inference
+title: "Model Serving & Inference Engineering"
+layer: layer-5-production
+order: 25
+summary: "Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices."
+estimatedMinutes: 480
+difficulty: Advanced
+prerequisites:
+  - NB-08
+  - NB-20
+tags:
+  - serving
+  - inference
+  - runtime
+  - latency
+updatedAt: "2026-04-14"
+resources:
+  - title: "vLLM documentation"
+    href: "https://docs.vllm.ai/"
+    note: "Official or high-signal reference for Model Serving & Inference Engineering."
+  - title: "TGI documentation"
+    href: "https://huggingface.co/docs/text-generation-inference/"
+    note: "Official or high-signal reference for Model Serving & Inference Engineering."
+  - title: "Triton Inference Server"
+    href: "https://docs.nvidia.com/deeplearning/triton-inference-server/"
+    note: "Official or high-signal reference for Model Serving & Inference Engineering."
+  - title: "LiteLLM documentation"
+    href: "https://docs.litellm.ai/"
+    note: "Official or high-signal reference for Model Serving & Inference Engineering."
+  - title: "PagedAttention paper"
+    href: "https://arxiv.org/abs/2309.06180"
+    note: "Official or high-signal reference for Model Serving & Inference Engineering."
+---
+
+## What this lesson is really about
+
+Serving is where model theory collides with hard production constraints. The beautiful training setup no longer matters unless inference can be delivered fast, cheaply, and reliably.
+
+This lesson focuses on runtime mechanics, scaling patterns, and the operational reality behind API-level model usage.
+
+## What you will understand
+
+- Understand the main levers that change throughput and latency.
+- Compare inference runtimes and deployment patterns more concretely.
+- Recognize the difference between model quality issues and serving issues.
+- Design serving systems that balance efficiency with operational simplicity.
+
+## Why this topic matters in real AI engineering
+
+Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. vLLM
+
+vLLM gets easier once you stop treating PagedAttention internals, continuous batching, and throughput vs latency tradeoff as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how PagedAttention internals starts the behavior, how continuous batching change the tradeoff, and why throughput vs latency tradeoff is often where reliability, latency, or quality becomes visible. Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices.
+
+If you can explain how PagedAttention internals connects to throughput vs latency tradeoff, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. TGI (Text Generation Inference)
+
+TGI (Text Generation Inference) gets easier once you stop treating architecture, quantization support, and tensor parallelism as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how architecture starts the behavior, how quantization support change the tradeoff, and why tensor parallelism is often where reliability, latency, or quality becomes visible. Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices.
+
+If you can explain how architecture connects to tensor parallelism, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Triton Inference Server
+
+Triton Inference Server gets easier once you stop treating model repository, dynamic batching, ensemble pipelines, and perf_analyzer as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how model repository starts the behavior, how dynamic batching and ensemble pipelines change the tradeoff, and why perf_analyzer is often where reliability, latency, or quality becomes visible. Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices.
+
+If you can explain how model repository connects to perf_analyzer, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. OpenAI-compatible API servers
+
+OpenAI-compatible API servers gets easier once you stop treating LiteLLM proxy, OpenRouter, and unified interface patterns as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how LiteLLM proxy starts the behavior, how OpenRouter change the tradeoff, and why unified interface patterns is often where reliability, latency, or quality becomes visible. Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices.
+
+If you can explain how LiteLLM proxy connects to unified interface patterns, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Speculative decoding
+
+Speculative decoding gets easier once you stop treating draft model, acceptance sampling, speedup conditions, and implementation as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how draft model starts the behavior, how acceptance sampling and speedup conditions change the tradeoff, and why implementation is often where reliability, latency, or quality becomes visible. Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices.
+
+If you can explain how draft model connects to implementation, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. KV cache optimization
+
+KV cache optimization gets easier once you stop treating prefix caching, RadixAttention, and cache eviction policies as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how prefix caching starts the behavior, how RadixAttention change the tradeoff, and why cache eviction policies is often where reliability, latency, or quality becomes visible. Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices.
+
+If you can explain how prefix caching connects to cache eviction policies, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Model compression
+
+Model compression gets easier once you stop treating structured pruning, knowledge distillation, and GPTQ post-training quantization as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how structured pruning starts the behavior, how knowledge distillation change the tradeoff, and why GPTQ post-training quantization is often where reliability, latency, or quality becomes visible. Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices.
+
+If you can explain how structured pruning connects to GPTQ post-training quantization, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. GPU memory management
+
+GPU memory management gets easier once you stop treating tensor parallelism, pipeline parallelism, and ZeRO offloading as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how tensor parallelism starts the behavior, how pipeline parallelism change the tradeoff, and why ZeRO offloading is often where reliability, latency, or quality becomes visible. Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices.
+
+If you can explain how tensor parallelism connects to ZeRO offloading, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Inference benchmarking
+
+Inference benchmarking gets easier once you stop treating throughput (tokens/sec), latency (TTFT, TBT), and cost per token as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how throughput (tokens/sec) starts the behavior, how latency (TTFT and TBT) change the tradeoff, and why cost per token is often where reliability, latency, or quality becomes visible. Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices.
+
+If you can explain how throughput (tokens/sec) connects to cost per token, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Production deployment patterns
+
+Production deployment patterns gets easier once you stop treating canary deployment for model updates and A/B testing inference servers as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how canary deployment for model updates starts the behavior, how the middle pieces change the tradeoff, and why A/B testing inference servers is often where reliability, latency, or quality becomes visible. Learn how models are served in production through batching, scaling, latency optimization, hardware use, and runtime choices.
+
+If you can explain how canary deployment for model updates connects to A/B testing inference servers, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+## A compact example worth studying
+
+```bash
+vllm serve mistralai/Mistral-7B-Instruct-v0.3 \
+  --tensor-parallel-size 2 \
+  --max-num-batched-tokens 8192 \
+  --gpu-memory-utilization 0.92
+```
+
+This snippet is not here to impress you with completeness. It is here to give one concrete anchor for how the lesson's ideas surface in code.
+
+
+## What to remember
+
+> The key habit is to reason about tokens, queues, cache, and hardware together rather than in separate silos.
+
+## Bridge to the next lessons
+
+> That runtime viewpoint also sharpens your judgment for edge models, multimodal workloads, and frontier inference patterns.
+
+## Further reading
+
+- [vLLM documentation](https://docs.vllm.ai/) — Official or high-signal reference for Model Serving & Inference Engineering.
+- [TGI documentation](https://huggingface.co/docs/text-generation-inference/) — Official or high-signal reference for Model Serving & Inference Engineering.
+- [Triton Inference Server](https://docs.nvidia.com/deeplearning/triton-inference-server/) — Official or high-signal reference for Model Serving & Inference Engineering.
+- [LiteLLM documentation](https://docs.litellm.ai/) — Official or high-signal reference for Model Serving & Inference Engineering.
+- [PagedAttention paper](https://arxiv.org/abs/2309.06180) — Official or high-signal reference for Model Serving & Inference Engineering.

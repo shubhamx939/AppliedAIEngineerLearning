@@ -1,0 +1,213 @@
+---
+id: NB-13
+slug: nb-13-tool-use-function-calling
+title: "Tool Use & Function Calling"
+layer: layer-3-llm-agentic
+order: 13
+summary: "Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries."
+estimatedMinutes: 360
+difficulty: Intermediate
+prerequisites:
+  - NB-12
+tags:
+  - tool-use
+  - function-calling
+  - schemas
+  - agents
+updatedAt: "2026-04-14"
+resources:
+  - title: "Anthropic tool use guide"
+    href: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use"
+    note: "Official or high-signal reference for Tool Use & Function Calling."
+  - title: "Anthropic tool use examples"
+    href: "https://docs.anthropic.com/en/docs/build-with-claude/tool-use/implement-tool-use"
+    note: "Official or high-signal reference for Tool Use & Function Calling."
+  - title: "OpenAI function calling"
+    href: "https://platform.openai.com/docs/guides/function-calling"
+    note: "Official or high-signal reference for Tool Use & Function Calling."
+  - title: "E2B code interpreter"
+    href: "https://e2b.dev/docs"
+    note: "Official or high-signal reference for Tool Use & Function Calling."
+  - title: "MCP tool schema"
+    href: "https://modelcontextprotocol.io/docs/concepts/tools"
+    note: "Official or high-signal reference for Tool Use & Function Calling."
+---
+
+## What this lesson is really about
+
+Tool use is where language interfaces meet actual software boundaries. Once the model can request a function, your engineering discipline becomes the difference between capability and chaos.
+
+The lesson matters because many modern AI applications are really tool routers: the model reasons, but the system still needs typed contracts, validation, and clear execution ownership.
+
+## What you will understand
+
+- Design tool interfaces that models can use reliably.
+- Validate model-generated arguments before side effects happen.
+- Understand the gap between selecting a tool and executing it safely.
+- Build better structured extraction and workflow interfaces.
+
+## Why this topic matters in real AI engineering
+
+Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Function calling spec
+
+Function calling spec gets easier once you stop treating Anthropic tool_use vs OpenAI function_calling as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Anthropic tool_use vs OpenAI function_calling starts the behavior, how the middle pieces change the tradeoff, and why Anthropic tool_use vs OpenAI function_calling is often where reliability, latency, or quality becomes visible. Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries.
+
+If you can explain how Anthropic tool_use vs OpenAI function_calling connects to Anthropic tool_use vs OpenAI function_calling, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Tool schema design
+
+Tool schema design gets easier once you stop treating name, description, input_schema best practices, and enum vs pattern constraints as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how name starts the behavior, how description and input_schema best practices change the tradeoff, and why enum vs pattern constraints is often where reliability, latency, or quality becomes visible. Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries.
+
+If you can explain how name connects to enum vs pattern constraints, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Tool selection routing
+
+Tool selection routing gets easier once you stop treating how models decide which tool to call and description quality impact as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how how models decide which tool to call starts the behavior, how the middle pieces change the tradeoff, and why description quality impact is often where reliability, latency, or quality becomes visible. Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries.
+
+If you can explain how how models decide which tool to call connects to description quality impact, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Parallel tool calls
+
+Parallel tool calls gets easier once you stop treating `tool_choice`, handling multiple simultaneous calls, and race conditions as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how `tool_choice` starts the behavior, how handling multiple simultaneous calls change the tradeoff, and why race conditions is often where reliability, latency, or quality becomes visible. Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries.
+
+If you can explain how `tool_choice` connects to race conditions, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Tool error handling
+
+Tool error handling gets easier once you stop treating malformed inputs, external API failures, and retry with corrected arguments as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how malformed inputs starts the behavior, how external API failures change the tradeoff, and why retry with corrected arguments is often where reliability, latency, or quality becomes visible. Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries.
+
+If you can explain how malformed inputs connects to retry with corrected arguments, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Tool result formatting
+
+Tool result formatting gets easier once you stop treating how to structure tool results for optimal model comprehension as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how how to structure tool results for optimal model comprehension starts the behavior, how the middle pieces change the tradeoff, and why how to structure tool results for optimal model comprehension is often where reliability, latency, or quality becomes visible. Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries.
+
+If you can explain how how to structure tool results for optimal model comprehension connects to how to structure tool results for optimal model comprehension, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. MCP tool server design
+
+MCP tool server design gets easier once you stop treating building production MCP servers, authentication, and rate limiting as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how building production MCP servers starts the behavior, how authentication change the tradeoff, and why rate limiting is often where reliability, latency, or quality becomes visible. Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries.
+
+If you can explain how building production MCP servers connects to rate limiting, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Sandboxed code execution
+
+Sandboxed code execution gets easier once you stop treating E2B, Daytona, Docker-based sandboxes, and security boundaries as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how E2B starts the behavior, how Daytona and Docker-based sandboxes change the tradeoff, and why security boundaries is often where reliability, latency, or quality becomes visible. Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries.
+
+If you can explain how E2B connects to security boundaries, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Tool use evaluation
+
+Tool use evaluation gets easier once you stop treating tool selection accuracy, argument correctness metrics, and end-to-end success rate as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how tool selection accuracy starts the behavior, how argument correctness metrics change the tradeoff, and why end-to-end success rate is often where reliability, latency, or quality becomes visible. Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries.
+
+If you can explain how tool selection accuracy connects to end-to-end success rate, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Real-world tool integrations
+
+Real-world tool integrations gets easier once you stop treating database query tools, web search, calendar, email, and file system as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how database query tools starts the behavior, how web search, calendar, and email change the tradeoff, and why file system is often where reliability, latency, or quality becomes visible. Learn how models call tools safely and predictably through schemas, routing, validation, and execution boundaries.
+
+If you can explain how database query tools connects to file system, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+## A compact example worth studying
+
+```json
+{
+  "name": "lookup_customer_balance",
+  "description": "Fetch the latest outstanding balance for a customer id",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "customer_id": { "type": "string" }
+    },
+    "required": ["customer_id"]
+  }
+}
+```
+
+This snippet is not here to impress you with completeness. It is here to give one concrete anchor for how the lesson's ideas surface in code.
+
+
+## What to remember
+
+> Reliable tool use depends more on schema design and guardrails than on fancy prompting alone.
+
+## Bridge to the next lessons
+
+> This foundation pays off in retrieval, agent orchestration, structured outputs, and backend APIs.
+
+## Further reading
+
+- [Anthropic tool use guide](https://docs.anthropic.com/en/docs/build-with-claude/tool-use) — Official or high-signal reference for Tool Use & Function Calling.
+- [Anthropic tool use examples](https://docs.anthropic.com/en/docs/build-with-claude/tool-use/implement-tool-use) — Official or high-signal reference for Tool Use & Function Calling.
+- [OpenAI function calling](https://platform.openai.com/docs/guides/function-calling) — Official or high-signal reference for Tool Use & Function Calling.
+- [E2B code interpreter](https://e2b.dev/docs) — Official or high-signal reference for Tool Use & Function Calling.
+- [MCP tool schema](https://modelcontextprotocol.io/docs/concepts/tools) — Official or high-signal reference for Tool Use & Function Calling.

@@ -1,0 +1,201 @@
+---
+id: NB-24
+slug: nb-24-security-compliance
+title: "Security & Compliance for AI"
+layer: layer-5-production
+order: 24
+summary: "Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure."
+estimatedMinutes: 360
+difficulty: Advanced
+prerequisites:
+  - NB-22
+  - NB-23
+tags:
+  - security
+  - compliance
+  - privacy
+  - governance
+updatedAt: "2026-04-14"
+resources:
+  - title: "NIST AI Risk Management Framework"
+    href: "https://airc.nist.gov/"
+    note: "Official or high-signal reference for Security & Compliance for AI."
+  - title: "OWASP LLM Top 10"
+    href: "https://owasp.org/www-project-top-10-for-large-language-model-applications/"
+    note: "Official or high-signal reference for Security & Compliance for AI."
+  - title: "Anthropic Responsible Scaling Policy"
+    href: "https://www.anthropic.com/policies/responsible-scaling-policy"
+    note: "Official or high-signal reference for Security & Compliance for AI."
+  - title: "EU AI Act"
+    href: "https://artificialintelligenceact.eu/"
+    note: "Official or high-signal reference for Security & Compliance for AI."
+  - title: "GDPR text"
+    href: "https://gdpr-info.eu/"
+    note: "Official or high-signal reference for Security & Compliance for AI."
+  - title: "AWS Security Hub"
+    href: "https://docs.aws.amazon.com/securityhub/"
+    note: "Official or high-signal reference for Security & Compliance for AI."
+---
+
+## What this lesson is really about
+
+AI systems extend familiar security concerns into new territory: prompt injection, sensitive context leakage, model misuse, and hidden third-party dependencies.
+
+Security and compliance matter early because architecture hardens fast. The later you notice data and execution risks, the more expensive the fix becomes.
+
+## What you will understand
+
+- Identify the main attack surfaces and governance concerns in AI products.
+- Understand how data handling choices become compliance questions.
+- Design more secure model and tool execution patterns.
+- Connect policy obligations to practical engineering controls.
+
+## Why this topic matters in real AI engineering
+
+Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. AI threat modeling
+
+AI threat modeling gets easier once you stop treating STRIDE applied to AI systems and attack surface enumeration as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how STRIDE applied to AI systems starts the behavior, how the middle pieces change the tradeoff, and why attack surface enumeration is often where reliability, latency, or quality becomes visible. Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure.
+
+If you can explain how STRIDE applied to AI systems connects to attack surface enumeration, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Data poisoning & supply chain attacks
+
+Data poisoning & supply chain attacks gets easier once you stop treating training data poisoning, model backdoors, and defense as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how training data poisoning starts the behavior, how model backdoors change the tradeoff, and why defense is often where reliability, latency, or quality becomes visible. Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure.
+
+If you can explain how training data poisoning connects to defense, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. GDPR for AI
+
+GDPR for AI gets easier once you stop treating right to explanation, data minimization, DPO responsibilities, and lawful basis for AI as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how right to explanation starts the behavior, how data minimization and DPO responsibilities change the tradeoff, and why lawful basis for AI is often where reliability, latency, or quality becomes visible. Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure.
+
+If you can explain how right to explanation connects to lawful basis for AI, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Model cards & data sheets
+
+Model cards & data sheets gets easier once you stop treating Datasheets for Datasets format, model card structure, and disclosure requirements as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Datasheets for Datasets format starts the behavior, how model card structure change the tradeoff, and why disclosure requirements is often where reliability, latency, or quality becomes visible. Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure.
+
+If you can explain how Datasheets for Datasets format connects to disclosure requirements, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Responsible AI frameworks
+
+Responsible AI frameworks gets easier once you stop treating NIST AI RMF, EU AI Act risk tiers, and Anthropic responsible scaling policy as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how NIST AI RMF starts the behavior, how EU AI Act risk tiers change the tradeoff, and why Anthropic responsible scaling policy is often where reliability, latency, or quality becomes visible. Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure.
+
+If you can explain how NIST AI RMF connects to Anthropic responsible scaling policy, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Audit logging & lineage
+
+Audit logging & lineage gets easier once you stop treating immutable audit logs, data lineage tracking, and model decision logging as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how immutable audit logs starts the behavior, how data lineage tracking change the tradeoff, and why model decision logging is often where reliability, latency, or quality becomes visible. Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure.
+
+If you can explain how immutable audit logs connects to model decision logging, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. SOC 2 for AI systems
+
+SOC 2 for AI systems gets easier once you stop treating relevant trust service criteria, AI-specific controls, and evidence collection as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how relevant trust service criteria starts the behavior, how AI-specific controls change the tradeoff, and why evidence collection is often where reliability, latency, or quality becomes visible. Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure.
+
+If you can explain how relevant trust service criteria connects to evidence collection, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Secrets hygiene
+
+Secrets hygiene gets easier once you stop treating no hardcoded secrets, rotation schedules, vault patterns, and CI secret scanning as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how no hardcoded secrets starts the behavior, how rotation schedules and vault patterns change the tradeoff, and why CI secret scanning is often where reliability, latency, or quality becomes visible. Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure.
+
+If you can explain how no hardcoded secrets connects to CI secret scanning, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Network security
+
+Network security gets easier once you stop treating private endpoints for LLM APIs, VPC isolation, and egress filtering for agents as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how private endpoints for LLM APIs starts the behavior, how VPC isolation change the tradeoff, and why egress filtering for agents is often where reliability, latency, or quality becomes visible. Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure.
+
+If you can explain how private endpoints for LLM APIs connects to egress filtering for agents, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Incident response for AI
+
+Incident response for AI gets easier once you stop treating LLM incident taxonomy, containment procedures, and post-mortem templates as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how LLM incident taxonomy starts the behavior, how containment procedures change the tradeoff, and why post-mortem templates is often where reliability, latency, or quality becomes visible. Study the security and compliance layer of AI systems: data boundaries, model abuse, secrets, privacy, and governance pressure.
+
+If you can explain how LLM incident taxonomy connects to post-mortem templates, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> The central lesson is that trust depends on both secure engineering and explicit governance choices.
+
+## Bridge to the next lessons
+
+> Those trust boundaries matter directly in serving, enterprise deployment, and operational review.
+
+## Further reading
+
+- [NIST AI Risk Management Framework](https://airc.nist.gov/) — Official or high-signal reference for Security & Compliance for AI.
+- [OWASP LLM Top 10](https://owasp.org/www-project-top-10-for-large-language-model-applications/) — Official or high-signal reference for Security & Compliance for AI.
+- [Anthropic Responsible Scaling Policy](https://www.anthropic.com/policies/responsible-scaling-policy) — Official or high-signal reference for Security & Compliance for AI.
+- [EU AI Act](https://artificialintelligenceact.eu/) — Official or high-signal reference for Security & Compliance for AI.
+- [GDPR text](https://gdpr-info.eu/) — Official or high-signal reference for Security & Compliance for AI.
+- [AWS Security Hub](https://docs.aws.amazon.com/securityhub/) — Official or high-signal reference for Security & Compliance for AI.

@@ -1,0 +1,213 @@
+---
+id: NB-09
+slug: nb-09-prompt-engineering
+title: "Advanced Prompt Engineering"
+layer: layer-3-llm-agentic
+order: 9
+summary: "Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically."
+estimatedMinutes: 360
+difficulty: Intermediate
+prerequisites:
+  - NB-08
+tags:
+  - prompting
+  - structured-output
+  - testing
+  - safety
+updatedAt: "2026-04-14"
+resources:
+  - title: "Anthropic prompt engineering guide"
+    href: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview"
+    note: "Official or high-signal reference for Advanced Prompt Engineering."
+  - title: "Anthropic prompt library"
+    href: "https://docs.anthropic.com/en/prompt-library/library"
+    note: "Official or high-signal reference for Advanced Prompt Engineering."
+  - title: "OpenAI prompt engineering"
+    href: "https://platform.openai.com/docs/guides/prompt-engineering"
+    note: "Official or high-signal reference for Advanced Prompt Engineering."
+  - title: "DSPy documentation"
+    href: "https://dspy.ai/"
+    note: "Official or high-signal reference for Advanced Prompt Engineering."
+  - title: "LLMLingua"
+    href: "https://github.com/microsoft/LLMLingua"
+    note: "Official or high-signal reference for Advanced Prompt Engineering."
+  - title: "Anthropic prompt caching"
+    href: "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching"
+    note: "Official or high-signal reference for Advanced Prompt Engineering."
+---
+
+## What this lesson is really about
+
+Prompt engineering is most valuable when it stops being decorative phrasing and starts behaving like interface design, specification writing, and failure management.
+
+The practical challenge is not just getting a good answer once. It is getting reliable behavior across messy inputs, changing context, and operational constraints.
+
+## What you will understand
+
+- Choose prompting patterns based on task shape and model behavior.
+- Design system prompts and structured outputs that hold up in production.
+- Test and version prompts as real product assets.
+- Recognize adversarial and injection risks in context-heavy systems.
+
+## Why this topic matters in real AI engineering
+
+Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Zero-shot, few-shot, chain-of-thought
+
+Zero-shot, few-shot, chain-of-thought gets easier once you stop treating when each applies and formatting best practices as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how when each applies starts the behavior, how the middle pieces change the tradeoff, and why formatting best practices is often where reliability, latency, or quality becomes visible. Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically.
+
+If you can explain how when each applies connects to formatting best practices, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. System prompt design
+
+System prompt design gets easier once you stop treating persona, constraints, output format, context injection, and role separation as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how persona starts the behavior, how constraints, output format, and context injection change the tradeoff, and why role separation is often where reliability, latency, or quality becomes visible. Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically.
+
+If you can explain how persona connects to role separation, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Structured outputs
+
+Structured outputs gets easier once you stop treating JSON mode, tool-use for extraction, XML output, and Pydantic integration as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how JSON mode starts the behavior, how tool-use for extraction and XML output change the tradeoff, and why Pydantic integration is often where reliability, latency, or quality becomes visible. Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically.
+
+If you can explain how JSON mode connects to Pydantic integration, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Advanced reasoning
+
+Advanced reasoning gets easier once you stop treating tree-of-thought (ToT), self-consistency sampling, and least-to-most prompting as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how tree-of-thought (ToT) starts the behavior, how self-consistency sampling change the tradeoff, and why least-to-most prompting is often where reliability, latency, or quality becomes visible. Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically.
+
+If you can explain how tree-of-thought (ToT) connects to least-to-most prompting, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Prompt compression
+
+Prompt compression gets easier once you stop treating LLMLingua, context distillation, and selective compression strategies as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how LLMLingua starts the behavior, how context distillation change the tradeoff, and why selective compression strategies is often where reliability, latency, or quality becomes visible. Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically.
+
+If you can explain how LLMLingua connects to selective compression strategies, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Prompt versioning & testing
+
+Prompt versioning & testing gets easier once you stop treating version control patterns, A/B prompt testing, and regression test suites as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how version control patterns starts the behavior, how A/B prompt testing change the tradeoff, and why regression test suites is often where reliability, latency, or quality becomes visible. Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically.
+
+If you can explain how version control patterns connects to regression test suites, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Cost & latency optimization
+
+Cost & latency optimization gets easier once you stop treating token budgeting, prompt caching (Anthropic/OpenAI), and batching as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how token budgeting starts the behavior, how prompt caching (Anthropic/OpenAI) change the tradeoff, and why batching is often where reliability, latency, or quality becomes visible. Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically.
+
+If you can explain how token budgeting connects to batching, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Adversarial prompts
+
+Adversarial prompts gets easier once you stop treating jailbreak taxonomy, prompt injection attacks, and defense patterns as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how jailbreak taxonomy starts the behavior, how prompt injection attacks change the tradeoff, and why defense patterns is often where reliability, latency, or quality becomes visible. Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically.
+
+If you can explain how jailbreak taxonomy connects to defense patterns, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Meta-prompting
+
+Meta-prompting gets easier once you stop treating prompts that generate prompts, self-refinement loops, and critic-actor patterns as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how prompts that generate prompts starts the behavior, how self-refinement loops change the tradeoff, and why critic-actor patterns is often where reliability, latency, or quality becomes visible. Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically.
+
+If you can explain how prompts that generate prompts connects to critic-actor patterns, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. DSPy
+
+DSPy gets easier once you stop treating declarative prompt optimization, signatures, teleprompters, and compilation as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how declarative prompt optimization starts the behavior, how signatures and teleprompters change the tradeoff, and why compilation is often where reliability, latency, or quality becomes visible. Treat prompting as interface design: structure inputs, constrain outputs, defend against attacks, and improve quality systematically.
+
+If you can explain how declarative prompt optimization connects to compilation, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+## A compact example worth studying
+
+```text
+System:
+You are extracting invoice data.
+Return valid JSON only.
+If a field is missing, use null instead of guessing.
+
+User:
+Extract invoice_number, vendor, total_amount, currency, due_date.
+```
+
+This snippet is not here to impress you with completeness. It is here to give one concrete anchor for how the lesson's ideas surface in code.
+
+
+## What to remember
+
+> Good prompts narrow ambiguity, preserve structure, and make failure easier to detect.
+
+## Bridge to the next lessons
+
+> Those habits carry directly into agents, tool use, structured extraction, and evaluation.
+
+## Further reading
+
+- [Anthropic prompt engineering guide](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview) — Official or high-signal reference for Advanced Prompt Engineering.
+- [Anthropic prompt library](https://docs.anthropic.com/en/prompt-library/library) — Official or high-signal reference for Advanced Prompt Engineering.
+- [OpenAI prompt engineering](https://platform.openai.com/docs/guides/prompt-engineering) — Official or high-signal reference for Advanced Prompt Engineering.
+- [DSPy documentation](https://dspy.ai/) — Official or high-signal reference for Advanced Prompt Engineering.
+- [LLMLingua](https://github.com/microsoft/LLMLingua) — Official or high-signal reference for Advanced Prompt Engineering.
+- [Anthropic prompt caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching) — Official or high-signal reference for Advanced Prompt Engineering.

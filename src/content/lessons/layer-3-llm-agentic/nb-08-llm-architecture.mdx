@@ -1,0 +1,201 @@
+---
+id: NB-08
+slug: nb-08-llm-architecture
+title: "LLM Architecture & Internals"
+layer: layer-3-llm-agentic
+order: 8
+summary: "Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment."
+estimatedMinutes: 600
+difficulty: Advanced
+prerequisites:
+  - NB-06
+  - NB-07
+tags:
+  - llm
+  - transformers
+  - inference
+  - alignment
+updatedAt: "2026-04-14"
+resources:
+  - title: "Anthropic model documentation"
+    href: "https://docs.anthropic.com/en/docs/about-claude/models/overview"
+    note: "Official or high-signal reference for LLM Architecture & Internals."
+  - title: "HuggingFace transformers"
+    href: "https://huggingface.co/docs/transformers/"
+    note: "Official or high-signal reference for LLM Architecture & Internals."
+  - title: "Flash Attention paper"
+    href: "https://arxiv.org/abs/2205.14135"
+    note: "Official or high-signal reference for LLM Architecture & Internals."
+  - title: "RoPE paper"
+    href: "https://arxiv.org/abs/2104.09864"
+    note: "Official or high-signal reference for LLM Architecture & Internals."
+  - title: "AWQ paper"
+    href: "https://arxiv.org/abs/2306.00978"
+    note: "Official or high-signal reference for LLM Architecture & Internals."
+  - title: "Lost in the Middle paper"
+    href: "https://arxiv.org/abs/2307.03172"
+    note: "Official or high-signal reference for LLM Architecture & Internals."
+---
+
+## What this lesson is really about
+
+This lesson is about turning LLMs from magical APIs into systems you can inspect. Once you understand what consumes memory, what limits context, and how inference is optimized, model behavior becomes less mysterious.
+
+The product choices around prompts, retrieval, serving, and fine-tuning all depend on what is happening inside the model at inference time.
+
+## What you will understand
+
+- Explain how modern transformer models spend compute and memory.
+- Understand the major inference tradeoffs behind latency and quality.
+- Read context window and tokenizer behavior more critically.
+- Compare model families and alignment strategies with better judgment.
+
+## Why this topic matters in real AI engineering
+
+Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Transformer internals
+
+Transformer internals gets easier once you stop treating self-attention complexity O(n²), KV cache, causal masking, and flash attention as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how self-attention complexity O(n²) starts the behavior, how KV cache and causal masking change the tradeoff, and why flash attention is often where reliability, latency, or quality becomes visible. Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment.
+
+If you can explain how self-attention complexity O(n²) connects to flash attention, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Positional encoding
+
+Positional encoding gets easier once you stop treating sinusoidal (original), RoPE (Llama), ALiBi (MPT), and YaRN for context extension as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how sinusoidal (original) starts the behavior, how RoPE (Llama) and ALiBi (MPT) change the tradeoff, and why YaRN for context extension is often where reliability, latency, or quality becomes visible. Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment.
+
+If you can explain how sinusoidal (original) connects to YaRN for context extension, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. KV cache mechanics
+
+KV cache mechanics gets easier once you stop treating how it works, memory cost formula, prefix caching, and quantized KV cache as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how how it works starts the behavior, how memory cost formula and prefix caching change the tradeoff, and why quantized KV cache is often where reliability, latency, or quality becomes visible. Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment.
+
+If you can explain how how it works connects to quantized KV cache, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Quantization
+
+Quantization gets easier once you stop treating GPTQ, AWQ, GGUF formats, 4-bit vs 8-bit tradeoffs, and quality degradation curves as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how GPTQ starts the behavior, how AWQ, GGUF formats, and 4-bit vs 8-bit tradeoffs change the tradeoff, and why quality degradation curves is often where reliability, latency, or quality becomes visible. Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment.
+
+If you can explain how GPTQ connects to quality degradation curves, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Model families comparison
+
+Model families comparison gets easier once you stop treating GPT-4, Claude 3.5, Gemini 1.5, Llama-3, Mistral, Phi-3, and Gemma-2 as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how GPT-4 starts the behavior, how Claude 3.5, Gemini 1.5, Llama-3, Mistral, and Phi-3 change the tradeoff, and why Gemma-2 is often where reliability, latency, or quality becomes visible. Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment.
+
+If you can explain how GPT-4 connects to Gemma-2, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Context window engineering
+
+Context window engineering gets easier once you stop treating chunking strategies, lost-in-the-middle problem, and context utilization as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how chunking strategies starts the behavior, how lost-in-the-middle problem change the tradeoff, and why context utilization is often where reliability, latency, or quality becomes visible. Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment.
+
+If you can explain how chunking strategies connects to context utilization, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Tokenizer internals
+
+Tokenizer internals gets easier once you stop treating vocabulary size impact, token fertility, and multilingual tokenization efficiency as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how vocabulary size impact starts the behavior, how token fertility change the tradeoff, and why multilingual tokenization efficiency is often where reliability, latency, or quality becomes visible. Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment.
+
+If you can explain how vocabulary size impact connects to multilingual tokenization efficiency, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Inference optimization
+
+Inference optimization gets easier once you stop treating continuous batching, speculative decoding, and tensor parallelism basics as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how continuous batching starts the behavior, how speculative decoding change the tradeoff, and why tensor parallelism basics is often where reliability, latency, or quality becomes visible. Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment.
+
+If you can explain how continuous batching connects to tensor parallelism basics, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Mixture of Experts (MoE)
+
+Mixture of Experts (MoE) gets easier once you stop treating sparse routing, expert capacity, and Mixtral architecture as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how sparse routing starts the behavior, how expert capacity change the tradeoff, and why Mixtral architecture is often where reliability, latency, or quality becomes visible. Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment.
+
+If you can explain how sparse routing connects to Mixtral architecture, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. RLHF & alignment
+
+RLHF & alignment gets easier once you stop treating reward model, PPO training loop, constitutional AI, and DPO vs PPO as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how reward model starts the behavior, how PPO training loop and constitutional AI change the tradeoff, and why DPO vs PPO is often where reliability, latency, or quality becomes visible. Open up the black box of modern LLMs: transformer internals, context windows, KV cache, quantization, inference optimization, and alignment.
+
+If you can explain how reward model connects to DPO vs PPO, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> Think in terms of tokens, activations, cache, routing, and alignment pressure rather than brand names or leaderboard snapshots.
+
+## Bridge to the next lessons
+
+> Prompt engineering, PEFT, serving, and frontier model design all become easier once this internal model is stable.
+
+## Further reading
+
+- [Anthropic model documentation](https://docs.anthropic.com/en/docs/about-claude/models/overview) — Official or high-signal reference for LLM Architecture & Internals.
+- [HuggingFace transformers](https://huggingface.co/docs/transformers/) — Official or high-signal reference for LLM Architecture & Internals.
+- [Flash Attention paper](https://arxiv.org/abs/2205.14135) — Official or high-signal reference for LLM Architecture & Internals.
+- [RoPE paper](https://arxiv.org/abs/2104.09864) — Official or high-signal reference for LLM Architecture & Internals.
+- [AWQ paper](https://arxiv.org/abs/2306.00978) — Official or high-signal reference for LLM Architecture & Internals.
+- [Lost in the Middle paper](https://arxiv.org/abs/2307.03172) — Official or high-signal reference for LLM Architecture & Internals.

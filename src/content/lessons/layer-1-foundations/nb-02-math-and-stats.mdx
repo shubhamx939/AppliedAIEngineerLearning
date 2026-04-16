@@ -1,0 +1,172 @@
+---
+id: NB-02
+slug: nb-02-math-and-stats
+title: "Math & Statistics Foundations"
+layer: layer-1-foundations
+order: 2
+summary: "Build the mathematical intuition behind embeddings, attention, optimization, and statistical judgment without turning the lesson into pure formalism."
+estimatedMinutes: 480
+difficulty: Foundation
+prerequisites:
+  - NB-01
+tags:
+  - math
+  - statistics
+  - optimization
+  - transformers
+updatedAt: "2026-04-14"
+resources:
+  - title: "NumPy linear algebra"
+    href: "https://numpy.org/doc/stable/reference/routines.linalg.html"
+    note: "Official or high-signal reference for Math & Statistics Foundations."
+  - title: "SciPy stats"
+    href: "https://docs.scipy.org/doc/scipy/reference/stats.html"
+    note: "Official or high-signal reference for Math & Statistics Foundations."
+  - title: "3Blue1Brown linear algebra series"
+    href: "https://www.3blue1brown.com/topics/linear-algebra"
+    note: "Official or high-signal reference for Math & Statistics Foundations."
+  - title: "The Matrix Calculus You Need for Deep Learning"
+    href: "https://arxiv.org/abs/1802.01528"
+    note: "Official or high-signal reference for Math & Statistics Foundations."
+  - title: "Information Theory, Inference, and Learning Algorithms (MacKay)"
+    href: "https://www.inference.org.uk/itprnn/book.pdf"
+    note: "Official or high-signal reference for Math & Statistics Foundations."
+---
+
+## What this lesson is really about
+
+This lesson is about becoming comfortable with the math that modern AI systems keep using under different names: vectors, probabilities, gradients, information, and optimization landscapes.
+
+Senior AI engineers do not need to derive every proof from memory, but they do need enough fluency to spot nonsense, reason about failure, and explain why a technique works.
+
+## What you will understand
+
+- Translate core ML math into intuition instead of symbol memorization.
+- See why matrix operations dominate deep learning systems.
+- Connect optimization rules to model training behavior.
+- Recognize numerical stability problems before they ruin results.
+
+## Why this topic matters in real AI engineering
+
+Build the mathematical intuition behind embeddings, attention, optimization, and statistical judgment without turning the lesson into pure formalism. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Linear algebra
+
+Linear algebra gets easier once you stop treating vectors, dot products, matrix multiplication, eigenvalues, SVD, and PCA from scratch as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how vectors starts the behavior, how dot products, matrix multiplication, eigenvalues, and SVD change the tradeoff, and why PCA from scratch is often where reliability, latency, or quality becomes visible. Build the mathematical intuition behind embeddings, attention, optimization, and statistical judgment without turning the lesson into pure formalism.
+
+If you can explain how vectors connects to PCA from scratch, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Probability
+
+Probability gets easier once you stop treating Bayes theorem, conditional probability, distributions (Gaussian, Bernoulli, and Categorical) as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Bayes theorem starts the behavior, how conditional probability, distributions (Gaussian, and Bernoulli change the tradeoff, and why Categorical) is often where reliability, latency, or quality becomes visible. Build the mathematical intuition behind embeddings, attention, optimization, and statistical judgment without turning the lesson into pure formalism.
+
+If you can explain how Bayes theorem connects to Categorical), you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Calculus for ML
+
+Calculus for ML gets easier once you stop treating gradients, partial derivatives, chain rule, Jacobian, and Hessian as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how gradients starts the behavior, how partial derivatives, chain rule, and Jacobian change the tradeoff, and why Hessian is often where reliability, latency, or quality becomes visible. Build the mathematical intuition behind embeddings, attention, optimization, and statistical judgment without turning the lesson into pure formalism.
+
+If you can explain how gradients connects to Hessian, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Information theory
+
+Information theory gets easier once you stop treating entropy, cross-entropy, KL divergence, and mutual information (all used in LLM training) as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how entropy starts the behavior, how cross-entropy and KL divergence change the tradeoff, and why mutual information (all used in LLM training) is often where reliability, latency, or quality becomes visible. Build the mathematical intuition behind embeddings, attention, optimization, and statistical judgment without turning the lesson into pure formalism.
+
+If you can explain how entropy connects to mutual information (all used in LLM training), you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Statistics
+
+Statistics gets easier once you stop treating MLE, MAP, hypothesis testing, confidence intervals, p-values, and effect sizes as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how MLE starts the behavior, how MAP, hypothesis testing, confidence intervals, and p-values change the tradeoff, and why effect sizes is often where reliability, latency, or quality becomes visible. Build the mathematical intuition behind embeddings, attention, optimization, and statistical judgment without turning the lesson into pure formalism.
+
+If you can explain how MLE connects to effect sizes, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Optimization theory
+
+Optimization theory gets easier once you stop treating gradient descent, SGD, Adam, learning rate schedules, and convexity as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how gradient descent starts the behavior, how SGD, Adam, and learning rate schedules change the tradeoff, and why convexity is often where reliability, latency, or quality becomes visible. Build the mathematical intuition behind embeddings, attention, optimization, and statistical judgment without turning the lesson into pure formalism.
+
+If you can explain how gradient descent connects to convexity, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Linear algebra in transformers
+
+Linear algebra in transformers gets easier once you stop treating how attention is matrix multiplication and why SVD matters for LoRA as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how how attention is matrix multiplication starts the behavior, how the middle pieces change the tradeoff, and why why SVD matters for LoRA is often where reliability, latency, or quality becomes visible. Build the mathematical intuition behind embeddings, attention, optimization, and statistical judgment without turning the lesson into pure formalism.
+
+If you can explain how how attention is matrix multiplication connects to why SVD matters for LoRA, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Numerical stability
+
+Numerical stability gets easier once you stop treating overflow, underflow, `log_softmax` vs `softmax`, and mixed precision as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how overflow starts the behavior, how underflow and `log_softmax` vs `softmax` change the tradeoff, and why mixed precision is often where reliability, latency, or quality becomes visible. Build the mathematical intuition behind embeddings, attention, optimization, and statistical judgment without turning the lesson into pure formalism.
+
+If you can explain how overflow connects to mixed precision, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> What matters most is the mental link between formulas and behavior: what the model is representing, what the loss is punishing, and what the optimizer is actually doing step by step.
+
+## Bridge to the next lessons
+
+> These ideas feed directly into classical ML, deep learning, and transformer internals.
+
+## Further reading
+
+- [NumPy linear algebra](https://numpy.org/doc/stable/reference/routines.linalg.html) — Official or high-signal reference for Math & Statistics Foundations.
+- [SciPy stats](https://docs.scipy.org/doc/scipy/reference/stats.html) — Official or high-signal reference for Math & Statistics Foundations.
+- [3Blue1Brown linear algebra series](https://www.3blue1brown.com/topics/linear-algebra) — Official or high-signal reference for Math & Statistics Foundations.
+- [The Matrix Calculus You Need for Deep Learning](https://arxiv.org/abs/1802.01528) — Official or high-signal reference for Math & Statistics Foundations.
+- [Information Theory, Inference, and Learning Algorithms (MacKay)](https://www.inference.org.uk/itprnn/book.pdf) — Official or high-signal reference for Math & Statistics Foundations.

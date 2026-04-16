@@ -1,0 +1,201 @@
+---
+id: NB-26
+slug: nb-26-multimodal-ai
+title: "Multimodal AI"
+layer: layer-6-frontier
+order: 26
+summary: "Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design."
+estimatedMinutes: 480
+difficulty: Advanced
+prerequisites:
+  - NB-08
+  - NB-14
+tags:
+  - multimodal
+  - vision-language
+  - audio
+  - interfaces
+updatedAt: "2026-04-14"
+resources:
+  - title: "Anthropic vision documentation"
+    href: "https://docs.anthropic.com/en/docs/build-with-claude/vision"
+    note: "Official or high-signal reference for Multimodal AI."
+  - title: "OpenAI vision guide"
+    href: "https://platform.openai.com/docs/guides/vision"
+    note: "Official or high-signal reference for Multimodal AI."
+  - title: "Whisper"
+    href: "https://github.com/openai/whisper"
+    note: "Official or high-signal reference for Multimodal AI."
+  - title: "pyannote.audio"
+    href: "https://github.com/pyannote/pyannote-audio"
+    note: "Official or high-signal reference for Multimodal AI."
+  - title: "ColPali paper"
+    href: "https://arxiv.org/abs/2407.01449"
+    note: "Official or high-signal reference for Multimodal AI."
+  - title: "GOT-OCR"
+    href: "https://github.com/Ucas-HaoranWei/GOT-OCR2.0"
+    note: "Official or high-signal reference for Multimodal AI."
+---
+
+## What this lesson is really about
+
+Multimodal AI expands the interface of the system, but it also multiplies the design and operations questions. Inputs, context, latency, and evaluation all become more complicated.
+
+This lesson matters because the next generation of useful AI products increasingly mixes text, image, audio, and structured context instead of relying on one channel alone.
+
+## What you will understand
+
+- Explain how multimodal systems combine or align different input spaces.
+- Understand the product implications of moving beyond text-only models.
+- Recognize the extra evaluation and serving complexity multimodal systems add.
+- Compare model capabilities through actual task demands, not demos.
+
+## Why this topic matters in real AI engineering
+
+Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Vision-language models
+
+Vision-language models gets easier once you stop treating GPT-4V, Claude 3.5 Sonnet vision, Gemini 1.5, LLaVA-1.6, and Idefics3 as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how GPT-4V starts the behavior, how Claude 3.5 Sonnet vision, Gemini 1.5, and LLaVA-1.6 change the tradeoff, and why Idefics3 is often where reliability, latency, or quality becomes visible. Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design.
+
+If you can explain how GPT-4V connects to Idefics3, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Image + text RAG pipelines
+
+Image + text RAG pipelines gets easier once you stop treating CLIP embeddings, ColPali, and multi-vector image retrieval as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how CLIP embeddings starts the behavior, how ColPali change the tradeoff, and why multi-vector image retrieval is often where reliability, latency, or quality becomes visible. Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design.
+
+If you can explain how CLIP embeddings connects to multi-vector image retrieval, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Document AI
+
+Document AI gets easier once you stop treating LayoutLMv3, Donut, GOT-OCR 2.0, and structured extraction from documents as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how LayoutLMv3 starts the behavior, how Donut and GOT-OCR 2.0 change the tradeoff, and why structured extraction from documents is often where reliability, latency, or quality becomes visible. Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design.
+
+If you can explain how LayoutLMv3 connects to structured extraction from documents, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Video understanding
+
+Video understanding gets easier once you stop treating Gemini 1.5 video, Qwen2-VL, frame sampling strategies, and temporal reasoning as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Gemini 1.5 video starts the behavior, how Qwen2-VL and frame sampling strategies change the tradeoff, and why temporal reasoning is often where reliability, latency, or quality becomes visible. Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design.
+
+If you can explain how Gemini 1.5 video connects to temporal reasoning, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Audio transcription
+
+Audio transcription gets easier once you stop treating Whisper v3, pyannote for diarization, and speaker identification as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Whisper v3 starts the behavior, how pyannote for diarization change the tradeoff, and why speaker identification is often where reliability, latency, or quality becomes visible. Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design.
+
+If you can explain how Whisper v3 connects to speaker identification, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Speech synthesis
+
+Speech synthesis gets easier once you stop treating ElevenLabs API, Kokoro TTS, and streaming audio generation as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how ElevenLabs API starts the behavior, how Kokoro TTS change the tradeoff, and why streaming audio generation is often where reliability, latency, or quality becomes visible. Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design.
+
+If you can explain how ElevenLabs API connects to streaming audio generation, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Multimodal embeddings
+
+Multimodal embeddings gets easier once you stop treating CLIP, SigLIP, and ImageBind as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how CLIP starts the behavior, how SigLIP change the tradeoff, and why ImageBind is often where reliability, latency, or quality becomes visible. Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design.
+
+If you can explain how CLIP connects to ImageBind, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Multimodal agents
+
+Multimodal agents gets easier once you stop treating tool use with vision (screenshot → action), GUI agents, and web automation as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how tool use with vision (screenshot → action) starts the behavior, how GUI agents change the tradeoff, and why web automation is often where reliability, latency, or quality becomes visible. Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design.
+
+If you can explain how tool use with vision (screenshot → action) connects to web automation, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Evaluation for multimodal
+
+Evaluation for multimodal gets easier once you stop treating MMMU, VQAv2, and OCRBench as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how MMMU starts the behavior, how VQAv2 change the tradeoff, and why OCRBench is often where reliability, latency, or quality becomes visible. Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design.
+
+If you can explain how MMMU connects to OCRBench, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Production multimodal pipelines
+
+Production multimodal pipelines gets easier once you stop treating image preprocessing, cost optimization, and format handling as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how image preprocessing starts the behavior, how cost optimization change the tradeoff, and why format handling is often where reliability, latency, or quality becomes visible. Understand multimodal AI as a systems problem spanning representation, alignment, inference cost, and product interaction design.
+
+If you can explain how image preprocessing connects to format handling, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> Think of multimodal systems as representation and orchestration challenges as much as model capability upgrades.
+
+## Bridge to the next lessons
+
+> These ideas connect naturally to edge deployment, structured extraction, and long-context systems.
+
+## Further reading
+
+- [Anthropic vision documentation](https://docs.anthropic.com/en/docs/build-with-claude/vision) — Official or high-signal reference for Multimodal AI.
+- [OpenAI vision guide](https://platform.openai.com/docs/guides/vision) — Official or high-signal reference for Multimodal AI.
+- [Whisper](https://github.com/openai/whisper) — Official or high-signal reference for Multimodal AI.
+- [pyannote.audio](https://github.com/pyannote/pyannote-audio) — Official or high-signal reference for Multimodal AI.
+- [ColPali paper](https://arxiv.org/abs/2407.01449) — Official or high-signal reference for Multimodal AI.
+- [GOT-OCR](https://github.com/Ucas-HaoranWei/GOT-OCR2.0) — Official or high-signal reference for Multimodal AI.

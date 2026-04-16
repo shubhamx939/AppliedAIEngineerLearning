@@ -1,0 +1,197 @@
+---
+id: NB-04
+slug: nb-04-data-and-sql
+title: "Data Engineering & SQL Mastery"
+layer: layer-1-foundations
+order: 4
+summary: "Learn the data layer that supports AI products: SQL, Postgres internals, DataFrames, pipelines, and streaming foundations."
+estimatedMinutes: 360
+difficulty: Foundation
+prerequisites:
+  - NB-01
+  - NB-03
+tags:
+  - sql
+  - postgres
+  - data-engineering
+  - pipelines
+updatedAt: "2026-04-14"
+resources:
+  - title: "PostgreSQL documentation"
+    href: "https://www.postgresql.org/docs/current/"
+    note: "Official or high-signal reference for Data Engineering & SQL Mastery."
+  - title: "pandas documentation"
+    href: "https://pandas.pydata.org/docs/"
+    note: "Official or high-signal reference for Data Engineering & SQL Mastery."
+  - title: "Polars documentation"
+    href: "https://docs.pola.rs/"
+    note: "Official or high-signal reference for Data Engineering & SQL Mastery."
+  - title: "dbt documentation"
+    href: "https://docs.getdbt.com/"
+    note: "Official or high-signal reference for Data Engineering & SQL Mastery."
+  - title: "Apache Kafka documentation"
+    href: "https://kafka.apache.org/documentation/"
+    note: "Official or high-signal reference for Data Engineering & SQL Mastery."
+  - title: "Apache Arrow"
+    href: "https://arrow.apache.org/docs/python/"
+    note: "Official or high-signal reference for Data Engineering & SQL Mastery."
+---
+
+## What this lesson is really about
+
+AI systems are data systems first. Retrieval, training, evaluation, and observability all degrade quickly when the underlying data layer is fragile or poorly reasoned.
+
+This lesson gives you the operational view of data work: how queries behave, how storage layouts help or hurt, and how pipelines stay idempotent under change.
+
+## What you will understand
+
+- Write analytical SQL that explains system behavior, not just reports numbers.
+- Connect table design and indexing choices to downstream AI workflows.
+- Choose between pandas, polars, and warehouse-first patterns more deliberately.
+- Understand batch and streaming data movement for model pipelines.
+
+## Why this topic matters in real AI engineering
+
+Learn the data layer that supports AI products: SQL, Postgres internals, DataFrames, pipelines, and streaming foundations. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Advanced SQL
+
+Advanced SQL gets easier once you stop treating window functions, CTEs, recursive queries, lateral joins, and explain analyze as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how window functions starts the behavior, how CTEs, recursive queries, and lateral joins change the tradeoff, and why explain analyze is often where reliability, latency, or quality becomes visible. Learn the data layer that supports AI products: SQL, Postgres internals, DataFrames, pipelines, and streaming foundations.
+
+If you can explain how window functions connects to explain analyze, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. PostgreSQL internals
+
+PostgreSQL internals gets easier once you stop treating MVCC, index types (B-tree, GIN, GiST, BRIN), vacuuming, and partitioning as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how MVCC starts the behavior, how index types (B-tree, GIN, GiST, BRIN), and vacuuming change the tradeoff, and why partitioning is often where reliability, latency, or quality becomes visible. Learn the data layer that supports AI products: SQL, Postgres internals, DataFrames, pipelines, and streaming foundations.
+
+If you can explain how MVCC connects to partitioning, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. pandas & polars
+
+pandas & polars gets easier once you stop treating DataFrame operations, groupby, merge strategies, and lazy evaluation in polars as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how DataFrame operations starts the behavior, how groupby and merge strategies change the tradeoff, and why lazy evaluation in polars is often where reliability, latency, or quality becomes visible. Learn the data layer that supports AI products: SQL, Postgres internals, DataFrames, pipelines, and streaming foundations.
+
+If you can explain how DataFrame operations connects to lazy evaluation in polars, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Data cleaning & EDA
+
+Data cleaning & EDA gets easier once you stop treating missing data patterns, outlier detection, and data profiling with `ydata-profiling` as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how missing data patterns starts the behavior, how outlier detection change the tradeoff, and why data profiling with `ydata-profiling` is often where reliability, latency, or quality becomes visible. Learn the data layer that supports AI products: SQL, Postgres internals, DataFrames, pipelines, and streaming foundations.
+
+If you can explain how missing data patterns connects to data profiling with `ydata-profiling`, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Parquet & columnar formats
+
+Parquet & columnar formats gets easier once you stop treating Arrow, Parquet, and ORC as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Arrow starts the behavior, how Parquet change the tradeoff, and why ORC is often where reliability, latency, or quality becomes visible. Learn the data layer that supports AI products: SQL, Postgres internals, DataFrames, pipelines, and streaming foundations.
+
+If you can explain how Arrow connects to ORC, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. dbt fundamentals
+
+dbt fundamentals gets easier once you stop treating models, tests, sources, materializations, and lineage graphs as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how models starts the behavior, how tests, sources, and materializations change the tradeoff, and why lineage graphs is often where reliability, latency, or quality becomes visible. Learn the data layer that supports AI products: SQL, Postgres internals, DataFrames, pipelines, and streaming foundations.
+
+If you can explain how models connects to lineage graphs, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Data pipeline patterns
+
+Data pipeline patterns gets easier once you stop treating ETL vs ELT, idempotent pipelines, incremental loads, and CDC as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how ETL vs ELT starts the behavior, how idempotent pipelines and incremental loads change the tradeoff, and why CDC is often where reliability, latency, or quality becomes visible. Learn the data layer that supports AI products: SQL, Postgres internals, DataFrames, pipelines, and streaming foundations.
+
+If you can explain how ETL vs ELT connects to CDC, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Streaming data basics
+
+Streaming data basics gets easier once you stop treating Kafka concepts, consumer groups, offset management, and exactly-once semantics as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Kafka concepts starts the behavior, how consumer groups and offset management change the tradeoff, and why exactly-once semantics is often where reliability, latency, or quality becomes visible. Learn the data layer that supports AI products: SQL, Postgres internals, DataFrames, pipelines, and streaming foundations.
+
+If you can explain how Kafka concepts connects to exactly-once semantics, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+## A compact example worth studying
+
+```sql
+WITH ranked_chunks AS (
+  SELECT
+    document_id,
+    section_id,
+    score,
+    ROW_NUMBER() OVER (
+      PARTITION BY document_id
+      ORDER BY score DESC
+    ) AS row_num
+  FROM retrieval_scores
+)
+SELECT *
+FROM ranked_chunks
+WHERE row_num <= 3;
+```
+
+This snippet is not here to impress you with completeness. It is here to give one concrete anchor for how the lesson's ideas surface in code.
+
+
+## What to remember
+
+> The durable insight is that clean data flow is not a preprocessing chore. It is a product reliability problem.
+
+## Bridge to the next lessons
+
+> These data instincts unlock better feature engineering, retrieval pipelines, and model operations later in the roadmap.
+
+## Further reading
+
+- [PostgreSQL documentation](https://www.postgresql.org/docs/current/) — Official or high-signal reference for Data Engineering & SQL Mastery.
+- [pandas documentation](https://pandas.pydata.org/docs/) — Official or high-signal reference for Data Engineering & SQL Mastery.
+- [Polars documentation](https://docs.pola.rs/) — Official or high-signal reference for Data Engineering & SQL Mastery.
+- [dbt documentation](https://docs.getdbt.com/) — Official or high-signal reference for Data Engineering & SQL Mastery.
+- [Apache Kafka documentation](https://kafka.apache.org/documentation/) — Official or high-signal reference for Data Engineering & SQL Mastery.
+- [Apache Arrow](https://arrow.apache.org/docs/python/) — Official or high-signal reference for Data Engineering & SQL Mastery.

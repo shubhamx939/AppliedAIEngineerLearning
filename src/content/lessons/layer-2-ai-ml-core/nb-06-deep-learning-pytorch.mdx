@@ -1,0 +1,206 @@
+---
+id: NB-06
+slug: nb-06-deep-learning-pytorch
+title: "Deep Learning & PyTorch"
+layer: layer-2-ai-ml-core
+order: 6
+summary: "Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops."
+estimatedMinutes: 600
+difficulty: Intermediate
+prerequisites:
+  - NB-02
+  - NB-05
+tags:
+  - deep-learning
+  - pytorch
+  - transformers
+  - gpu
+updatedAt: "2026-04-14"
+resources:
+  - title: "PyTorch documentation"
+    href: "https://pytorch.org/docs/stable/"
+    note: "Official or high-signal reference for Deep Learning & PyTorch."
+  - title: "d2l.ai (Dive into Deep Learning)"
+    href: "https://d2l.ai/"
+    note: "Official or high-signal reference for Deep Learning & PyTorch."
+  - title: "fast.ai documentation"
+    href: "https://docs.fast.ai/"
+    note: "Official or high-signal reference for Deep Learning & PyTorch."
+  - title: "PyTorch mixed precision"
+    href: "https://pytorch.org/docs/stable/amp.html"
+    note: "Official or high-signal reference for Deep Learning & PyTorch."
+  - title: "Attention Is All You Need (Vaswani et al.)"
+    href: "https://arxiv.org/abs/1706.03762"
+    note: "Official or high-signal reference for Deep Learning & PyTorch."
+---
+
+## What this lesson is really about
+
+Deep learning starts to make sense when you stop seeing it as stacks of layers and start seeing it as a sequence of tensor transformations, gradient signals, and memory tradeoffs.
+
+This is the lesson where model training becomes something you can reason about, debug, and optimize instead of just running from a recipe.
+
+## What you will understand
+
+- Explain forward pass, backpropagation, and gradient flow in plain language.
+- Build reliable PyTorch training loops with real safeguards.
+- Understand attention and transformer components beyond diagram-level intuition.
+- Debug common training failures such as NaNs, OOMs, and dead gradients.
+
+## Why this topic matters in real AI engineering
+
+Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Neural network fundamentals
+
+Neural network fundamentals gets easier once you stop treating forward pass, activation functions, and universal approximation theorem as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how forward pass starts the behavior, how activation functions change the tradeoff, and why universal approximation theorem is often where reliability, latency, or quality becomes visible. Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops.
+
+If you can explain how forward pass connects to universal approximation theorem, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Backpropagation from scratch
+
+Backpropagation from scratch gets easier once you stop treating computational graphs, chain rule, and gradient accumulation as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how computational graphs starts the behavior, how chain rule change the tradeoff, and why gradient accumulation is often where reliability, latency, or quality becomes visible. Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops.
+
+If you can explain how computational graphs connects to gradient accumulation, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. PyTorch core
+
+PyTorch core gets easier once you stop treating Tensor operations, autograd, `nn.Module`, custom layers, and `DataLoader` as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Tensor operations starts the behavior, how autograd, `nn.Module`, and custom layers change the tradeoff, and why `DataLoader` is often where reliability, latency, or quality becomes visible. Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops.
+
+If you can explain how Tensor operations connects to `DataLoader`, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Training loop engineering
+
+Training loop engineering gets easier once you stop treating gradient clipping, learning rate schedulers, and mixed precision (`torch.amp`) as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how gradient clipping starts the behavior, how learning rate schedulers change the tradeoff, and why mixed precision (`torch.amp`) is often where reliability, latency, or quality becomes visible. Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops.
+
+If you can explain how gradient clipping connects to mixed precision (`torch.amp`), you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Attention mechanism from scratch
+
+Attention mechanism from scratch gets easier once you stop treating scaled dot-product attention, multi-head attention, and masking as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how scaled dot-product attention starts the behavior, how multi-head attention change the tradeoff, and why masking is often where reliability, latency, or quality becomes visible. Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops.
+
+If you can explain how scaled dot-product attention connects to masking, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Transformer architecture
+
+Transformer architecture gets easier once you stop treating positional encoding, encoder/decoder, and layer norm placement as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how positional encoding starts the behavior, how encoder/decoder change the tradeoff, and why layer norm placement is often where reliability, latency, or quality becomes visible. Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops.
+
+If you can explain how positional encoding connects to layer norm placement, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. CNNs & computer vision basics
+
+CNNs & computer vision basics gets easier once you stop treating convolutions, pooling, receptive fields, and batch norm as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how convolutions starts the behavior, how pooling and receptive fields change the tradeoff, and why batch norm is often where reliability, latency, or quality becomes visible. Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops.
+
+If you can explain how convolutions connects to batch norm, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Regularization & generalization
+
+Regularization & generalization gets easier once you stop treating dropout, weight decay, early stopping, and data augmentation as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how dropout starts the behavior, how weight decay and early stopping change the tradeoff, and why data augmentation is often where reliability, latency, or quality becomes visible. Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops.
+
+If you can explain how dropout connects to data augmentation, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. GPU memory management
+
+GPU memory management gets easier once you stop treating gradient checkpointing, `pin_memory`, memory profiling, and OOM debugging as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how gradient checkpointing starts the behavior, how `pin_memory` and memory profiling change the tradeoff, and why OOM debugging is often where reliability, latency, or quality becomes visible. Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops.
+
+If you can explain how gradient checkpointing connects to OOM debugging, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Model debugging
+
+Model debugging gets easier once you stop treating NaN detection, gradient flow visualization, and dead neuron diagnosis as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how NaN detection starts the behavior, how gradient flow visualization change the tradeoff, and why dead neuron diagnosis is often where reliability, latency, or quality becomes visible. Move from high-level neural network familiarity to engineering fluency with PyTorch, attention, transformers, and GPU-aware training loops.
+
+If you can explain how NaN detection connects to dead neuron diagnosis, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+## A compact example worth studying
+
+```python
+scores = (query @ key.transpose(-2, -1)) / (query.size(-1) ** 0.5)
+weights = scores.masked_fill(mask == 0, float("-inf")).softmax(dim=-1)
+context = weights @ value
+```
+
+This snippet is not here to impress you with completeness. It is here to give one concrete anchor for how the lesson's ideas surface in code.
+
+
+## What to remember
+
+> The goal is engineering confidence: knowing what the model computes, how it learns, and where the infrastructure starts to matter.
+
+## Bridge to the next lessons
+
+> Those mechanics are the prerequisite for NLP, LLM internals, fine-tuning, and model serving.
+
+## Further reading
+
+- [PyTorch documentation](https://pytorch.org/docs/stable/) — Official or high-signal reference for Deep Learning & PyTorch.
+- [d2l.ai (Dive into Deep Learning)](https://d2l.ai/) — Official or high-signal reference for Deep Learning & PyTorch.
+- [fast.ai documentation](https://docs.fast.ai/) — Official or high-signal reference for Deep Learning & PyTorch.
+- [PyTorch mixed precision](https://pytorch.org/docs/stable/amp.html) — Official or high-signal reference for Deep Learning & PyTorch.
+- [Attention Is All You Need (Vaswani et al.)](https://arxiv.org/abs/1706.03762) — Official or high-signal reference for Deep Learning & PyTorch.

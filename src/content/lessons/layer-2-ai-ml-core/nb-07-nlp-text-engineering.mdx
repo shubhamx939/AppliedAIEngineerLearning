@@ -1,0 +1,184 @@
+---
+id: NB-07
+slug: nb-07-nlp-text-engineering
+title: "NLP & Text Engineering"
+layer: layer-2-ai-ml-core
+order: 7
+summary: "Study text systems end to end: tokenization, classic NLP, semantic similarity, multilingual behavior, and document-scale handling."
+estimatedMinutes: 420
+difficulty: Intermediate
+prerequisites:
+  - NB-06
+tags:
+  - nlp
+  - tokenization
+  - embeddings
+  - documents
+updatedAt: "2026-04-14"
+resources:
+  - title: "HuggingFace NLP course"
+    href: "https://huggingface.co/learn/nlp-course/"
+    note: "Official or high-signal reference for NLP & Text Engineering."
+  - title: "spaCy documentation"
+    href: "https://spacy.io/usage"
+    note: "Official or high-signal reference for NLP & Text Engineering."
+  - title: "Sentence Transformers"
+    href: "https://www.sbert.net/"
+    note: "Official or high-signal reference for NLP & Text Engineering."
+  - title: "HuggingFace tokenizers"
+    href: "https://huggingface.co/docs/tokenizers/"
+    note: "Official or high-signal reference for NLP & Text Engineering."
+  - title: "SetFit"
+    href: "https://huggingface.co/docs/setfit/"
+    note: "Official or high-signal reference for NLP & Text Engineering."
+---
+
+## What this lesson is really about
+
+Text engineering sits between raw language and model behavior. A lot of downstream quality is decided before the prompt or loss function ever enters the story.
+
+If you can reason about tokenization, chunking, and semantic representation, you can build better search, retrieval, classification, and LLM context pipelines.
+
+## What you will understand
+
+- Understand how text is normalized, tokenized, and represented.
+- Choose between classic NLP components and modern transfer-learning approaches.
+- Build intuition for semantic similarity and document pipelines.
+- Reason about multilingual and long-document tradeoffs.
+
+## Why this topic matters in real AI engineering
+
+Study text systems end to end: tokenization, classic NLP, semantic similarity, multilingual behavior, and document-scale handling. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Tokenization deep dive
+
+Tokenization deep dive gets easier once you stop treating BPE, WordPiece, Unigram, and SentencePiece as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how BPE starts the behavior, how WordPiece and Unigram change the tradeoff, and why SentencePiece is often where reliability, latency, or quality becomes visible. Study text systems end to end: tokenization, classic NLP, semantic similarity, multilingual behavior, and document-scale handling.
+
+If you can explain how BPE connects to SentencePiece, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Text preprocessing
+
+Text preprocessing gets easier once you stop treating normalization, Unicode handling, language detection, and deduplication as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how normalization starts the behavior, how Unicode handling and language detection change the tradeoff, and why deduplication is often where reliability, latency, or quality becomes visible. Study text systems end to end: tokenization, classic NLP, semantic similarity, multilingual behavior, and document-scale handling.
+
+If you can explain how normalization connects to deduplication, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Classic NLP pipeline
+
+Classic NLP pipeline gets easier once you stop treating POS tagging, NER, and dependency parsing with spaCy as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how POS tagging starts the behavior, how NER change the tradeoff, and why dependency parsing with spaCy is often where reliability, latency, or quality becomes visible. Study text systems end to end: tokenization, classic NLP, semantic similarity, multilingual behavior, and document-scale handling.
+
+If you can explain how POS tagging connects to dependency parsing with spaCy, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Text classification
+
+Text classification gets easier once you stop treating fine-tuning BERT, zero-shot with NLI, and SetFit for few-shot as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how fine-tuning BERT starts the behavior, how zero-shot with NLI change the tradeoff, and why SetFit for few-shot is often where reliability, latency, or quality becomes visible. Study text systems end to end: tokenization, classic NLP, semantic similarity, multilingual behavior, and document-scale handling.
+
+If you can explain how fine-tuning BERT connects to SetFit for few-shot, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Named entity recognition
+
+Named entity recognition gets easier once you stop treating IOB tagging, span extraction, and custom NER training as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how IOB tagging starts the behavior, how span extraction change the tradeoff, and why custom NER training is often where reliability, latency, or quality becomes visible. Study text systems end to end: tokenization, classic NLP, semantic similarity, multilingual behavior, and document-scale handling.
+
+If you can explain how IOB tagging connects to custom NER training, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Semantic similarity
+
+Semantic similarity gets easier once you stop treating sentence transformers, cosine similarity, and semantic search pipelines as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how sentence transformers starts the behavior, how cosine similarity change the tradeoff, and why semantic search pipelines is often where reliability, latency, or quality becomes visible. Study text systems end to end: tokenization, classic NLP, semantic similarity, multilingual behavior, and document-scale handling.
+
+If you can explain how sentence transformers connects to semantic search pipelines, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Text generation evaluation
+
+Text generation evaluation gets easier once you stop treating BLEU, ROUGE, BERTScore, and perplexity as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how BLEU starts the behavior, how ROUGE and BERTScore change the tradeoff, and why perplexity is often where reliability, latency, or quality becomes visible. Study text systems end to end: tokenization, classic NLP, semantic similarity, multilingual behavior, and document-scale handling.
+
+If you can explain how BLEU connects to perplexity, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Multilingual NLP
+
+Multilingual NLP gets easier once you stop treating language-agnostic models, multilingual BERT, XLM-R, and mBART as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how language-agnostic models starts the behavior, how multilingual BERT and XLM-R change the tradeoff, and why mBART is often where reliability, latency, or quality becomes visible. Study text systems end to end: tokenization, classic NLP, semantic similarity, multilingual behavior, and document-scale handling.
+
+If you can explain how language-agnostic models connects to mBART, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Document understanding
+
+Document understanding gets easier once you stop treating chunking strategies for long documents, sliding windows, and hierarchical as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how chunking strategies for long documents starts the behavior, how sliding windows change the tradeoff, and why hierarchical is often where reliability, latency, or quality becomes visible. Study text systems end to end: tokenization, classic NLP, semantic similarity, multilingual behavior, and document-scale handling.
+
+If you can explain how chunking strategies for long documents connects to hierarchical, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> The big idea is that language systems are shaped by representation choices long before generation happens.
+
+## Bridge to the next lessons
+
+> That representation mindset becomes central in retrieval systems and large language model internals.
+
+## Further reading
+
+- [HuggingFace NLP course](https://huggingface.co/learn/nlp-course/) — Official or high-signal reference for NLP & Text Engineering.
+- [spaCy documentation](https://spacy.io/usage) — Official or high-signal reference for NLP & Text Engineering.
+- [Sentence Transformers](https://www.sbert.net/) — Official or high-signal reference for NLP & Text Engineering.
+- [HuggingFace tokenizers](https://huggingface.co/docs/tokenizers/) — Official or high-signal reference for NLP & Text Engineering.
+- [SetFit](https://huggingface.co/docs/setfit/) — Official or high-signal reference for NLP & Text Engineering.

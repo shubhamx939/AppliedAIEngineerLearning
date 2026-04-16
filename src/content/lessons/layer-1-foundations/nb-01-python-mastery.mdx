@@ -1,0 +1,205 @@
+---
+id: NB-01
+slug: nb-01-python-mastery
+title: "Python Mastery for AI Engineers"
+layer: layer-1-foundations
+order: 1
+summary: "Use Python the way production AI teams use it: typed, tested, profiled, concurrent, and explicit about runtime tradeoffs."
+estimatedMinutes: 360
+difficulty: Foundation
+prerequisites: []
+
+tags:
+  - python
+  - runtime
+  - testing
+  - performance
+updatedAt: "2026-04-14"
+resources:
+  - title: "Python asyncio"
+    href: "https://docs.python.org/3/library/asyncio.html"
+    note: "Official or high-signal reference for Python Mastery for AI Engineers."
+  - title: "Pydantic v2"
+    href: "https://docs.pydantic.dev/latest/"
+    note: "Official or high-signal reference for Python Mastery for AI Engineers."
+  - title: "pytest"
+    href: "https://docs.pytest.org/en/stable/"
+    note: "Official or high-signal reference for Python Mastery for AI Engineers."
+  - title: "uv package manager"
+    href: "https://docs.astral.sh/uv/"
+    note: "Official or high-signal reference for Python Mastery for AI Engineers."
+  - title: "memray profiler"
+    href: "https://bloomberg.github.io/memray/"
+    note: "Official or high-signal reference for Python Mastery for AI Engineers."
+  - title: "Python type hints PEP 484"
+    href: "https://peps.python.org/pep-0484/"
+    note: "Official or high-signal reference for Python Mastery for AI Engineers."
+---
+
+## What this lesson is really about
+
+Python is not just the language you write models in. It is the language that shapes queues, request handlers, test harnesses, model wrappers, and data interfaces across almost every applied AI stack.
+
+If your Python mental model stops at syntax, production AI work starts to feel random. Once you understand concurrency, data validation, packaging, profiling, and the runtime itself, the system becomes predictable.
+
+## What you will understand
+
+- Choose between async, threads, and processes without hand-waving.
+- Design typed interfaces with Pydantic that fail clearly.
+- Profile CPU and memory hotspots before optimizing.
+- Understand where Python internals influence AI system behavior.
+
+## Why this topic matters in real AI engineering
+
+Use Python the way production AI teams use it: typed, tested, profiled, concurrent, and explicit about runtime tradeoffs. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. async/await
+
+async/await gets easier once you stop treating event loops, coroutines, `asyncio.gather`, `asyncio.Queue`, and backpressure as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how event loops starts the behavior, how coroutines, `asyncio.gather`, and `asyncio.Queue` change the tradeoff, and why backpressure is often where reliability, latency, or quality becomes visible. Use Python the way production AI teams use it: typed, tested, profiled, concurrent, and explicit about runtime tradeoffs.
+
+If you can explain how event loops connects to backpressure, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Type hints & Pydantic v2
+
+Type hints & Pydantic v2 gets easier once you stop treating `BaseModel`, validators, `model_validator`, discriminated unions, and serialization as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how `BaseModel` starts the behavior, how validators, `model_validator`, and discriminated unions change the tradeoff, and why serialization is often where reliability, latency, or quality becomes visible. Use Python the way production AI teams use it: typed, tested, profiled, concurrent, and explicit about runtime tradeoffs.
+
+If you can explain how `BaseModel` connects to serialization, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Packaging & virtual envs
+
+Packaging & virtual envs gets easier once you stop treating `pyproject.toml`, `uv`, `hatch`, editable installs, and dependency groups as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how `pyproject.toml` starts the behavior, how `uv`, `hatch`, and editable installs change the tradeoff, and why dependency groups is often where reliability, latency, or quality becomes visible. Use Python the way production AI teams use it: typed, tested, profiled, concurrent, and explicit about runtime tradeoffs.
+
+If you can explain how `pyproject.toml` connects to dependency groups, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Decorators & metaclasses
+
+Decorators & metaclasses gets easier once you stop treating `functools.wraps`, class decorators, `__init_subclass__`, and `ABCMeta` as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how `functools.wraps` starts the behavior, how class decorators and `__init_subclass__` change the tradeoff, and why `ABCMeta` is often where reliability, latency, or quality becomes visible. Use Python the way production AI teams use it: typed, tested, profiled, concurrent, and explicit about runtime tradeoffs.
+
+If you can explain how `functools.wraps` connects to `ABCMeta`, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Memory management
+
+Memory management gets easier once you stop treating reference counting, `gc` module, `__slots__`, and memory profiling with `tracemalloc` as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how reference counting starts the behavior, how `gc` module and `__slots__` change the tradeoff, and why memory profiling with `tracemalloc` is often where reliability, latency, or quality becomes visible. Use Python the way production AI teams use it: typed, tested, profiled, concurrent, and explicit about runtime tradeoffs.
+
+If you can explain how reference counting connects to memory profiling with `tracemalloc`, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Testing with pytest
+
+Testing with pytest gets easier once you stop treating fixtures, parametrize, mocking (`unittest.mock`, `respx`), and async test patterns as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how fixtures starts the behavior, how parametrize, mocking (`unittest.mock`, and `respx`) change the tradeoff, and why async test patterns is often where reliability, latency, or quality becomes visible. Use Python the way production AI teams use it: typed, tested, profiled, concurrent, and explicit about runtime tradeoffs.
+
+If you can explain how fixtures connects to async test patterns, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Profiling & optimization
+
+Profiling & optimization gets easier once you stop treating `cProfile`, `line_profiler`, `memray`, and vectorization vs loops as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how `cProfile` starts the behavior, how `line_profiler` and `memray` change the tradeoff, and why vectorization vs loops is often where reliability, latency, or quality becomes visible. Use Python the way production AI teams use it: typed, tested, profiled, concurrent, and explicit about runtime tradeoffs.
+
+If you can explain how `cProfile` connects to vectorization vs loops, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Concurrency patterns
+
+Concurrency patterns gets easier once you stop treating threading vs multiprocessing vs async, `ProcessPoolExecutor`, and `ThreadPoolExecutor` as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how threading vs multiprocessing vs async starts the behavior, how `ProcessPoolExecutor` change the tradeoff, and why `ThreadPoolExecutor` is often where reliability, latency, or quality becomes visible. Use Python the way production AI teams use it: typed, tested, profiled, concurrent, and explicit about runtime tradeoffs.
+
+If you can explain how threading vs multiprocessing vs async connects to `ThreadPoolExecutor`, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Python internals for AI
+
+Python internals for AI gets easier once you stop treating GIL implications, `ctypes`, C extensions, and `numpy` memory layout as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how GIL implications starts the behavior, how `ctypes` and C extensions change the tradeoff, and why `numpy` memory layout is often where reliability, latency, or quality becomes visible. Use Python the way production AI teams use it: typed, tested, profiled, concurrent, and explicit about runtime tradeoffs.
+
+If you can explain how GIL implications connects to `numpy` memory layout, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+## A compact example worth studying
+
+```python
+import asyncio
+
+async def fetch_embedding(job_id: int) -> str:
+    await asyncio.sleep(0.2)
+    return f"embedding-ready:{job_id}"
+
+async def main() -> None:
+    jobs = [fetch_embedding(job_id) for job_id in range(3)]
+    print(await asyncio.gather(*jobs))
+
+asyncio.run(main())
+```
+
+This snippet is not here to impress you with completeness. It is here to give one concrete anchor for how the lesson's ideas surface in code.
+
+
+## What to remember
+
+> The winning mindset is to treat Python as an execution environment with tradeoffs, not a bag of convenience features.
+
+## Bridge to the next lessons
+
+> The next lessons lean on the precision you build here. Math, statistics, and systems become easier once your execution model is sharp.
+
+## Further reading
+
+- [Python asyncio](https://docs.python.org/3/library/asyncio.html) — Official or high-signal reference for Python Mastery for AI Engineers.
+- [Pydantic v2](https://docs.pydantic.dev/latest/) — Official or high-signal reference for Python Mastery for AI Engineers.
+- [pytest](https://docs.pytest.org/en/stable/) — Official or high-signal reference for Python Mastery for AI Engineers.
+- [uv package manager](https://docs.astral.sh/uv/) — Official or high-signal reference for Python Mastery for AI Engineers.
+- [memray profiler](https://bloomberg.github.io/memray/) — Official or high-signal reference for Python Mastery for AI Engineers.
+- [Python type hints PEP 484](https://peps.python.org/pep-0484/) — Official or high-signal reference for Python Mastery for AI Engineers.

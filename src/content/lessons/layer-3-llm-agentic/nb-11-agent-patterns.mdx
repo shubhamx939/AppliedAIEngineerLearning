@@ -1,0 +1,196 @@
+---
+id: NB-11
+slug: nb-11-agent-patterns
+title: "Agent Design Patterns"
+layer: layer-3-llm-agentic
+order: 11
+summary: "Study common agent patterns through control flow, state, planning, and failure handling instead of hype."
+estimatedMinutes: 480
+difficulty: Intermediate
+prerequisites:
+  - NB-09
+tags:
+  - agents
+  - planning
+  - workflows
+  - state
+updatedAt: "2026-04-14"
+resources:
+  - title: "ReAct paper"
+    href: "https://arxiv.org/abs/2210.03629"
+    note: "Official or high-signal reference for Agent Design Patterns."
+  - title: "Tree of Thoughts paper"
+    href: "https://arxiv.org/abs/2305.10601"
+    note: "Official or high-signal reference for Agent Design Patterns."
+  - title: "MemGPT paper"
+    href: "https://arxiv.org/abs/2310.08560"
+    note: "Official or high-signal reference for Agent Design Patterns."
+  - title: "Microsoft AutoGen agents"
+    href: "https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html"
+    note: "Official or high-signal reference for Agent Design Patterns."
+  - title: "Reflexion paper"
+    href: "https://arxiv.org/abs/2303.11366"
+    note: "Official or high-signal reference for Agent Design Patterns."
+---
+
+## What this lesson is really about
+
+Agent design gets clearer when you frame it as workflow architecture. The question is not whether an agent is smart, but whether the control pattern is observable, bounded, and worth the complexity.
+
+This lesson helps you separate useful orchestration from unnecessary abstraction, which is one of the biggest judgment calls in modern AI product design.
+
+## What you will understand
+
+- Recognize the difference between useful workflow agents and vague autonomy claims.
+- Choose agent patterns that fit task boundaries and observability needs.
+- Understand where memory, planning, and human handoff matter most.
+- Spot failure modes before they become product incidents.
+
+## Why this topic matters in real AI engineering
+
+Study common agent patterns through control flow, state, planning, and failure handling instead of hype. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. ReAct pattern
+
+ReAct pattern gets easier once you stop treating reason-then-act loop, thought/action/observation cycle, and termination conditions as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how reason-then-act loop starts the behavior, how thought/action/observation cycle change the tradeoff, and why termination conditions is often where reliability, latency, or quality becomes visible. Study common agent patterns through control flow, state, planning, and failure handling instead of hype.
+
+If you can explain how reason-then-act loop connects to termination conditions, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Chain-of-Thought variants
+
+Chain-of-Thought variants gets easier once you stop treating standard CoT, zero-shot CoT, self-consistency CoT, and process reward as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how standard CoT starts the behavior, how zero-shot CoT and self-consistency CoT change the tradeoff, and why process reward is often where reliability, latency, or quality becomes visible. Study common agent patterns through control flow, state, planning, and failure handling instead of hype.
+
+If you can explain how standard CoT connects to process reward, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Tree-of-Thought (ToT)
+
+Tree-of-Thought (ToT) gets easier once you stop treating branching reasoning, beam search over thoughts, and evaluation strategies as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how branching reasoning starts the behavior, how beam search over thoughts change the tradeoff, and why evaluation strategies is often where reliability, latency, or quality becomes visible. Study common agent patterns through control flow, state, planning, and failure handling instead of hype.
+
+If you can explain how branching reasoning connects to evaluation strategies, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. MRKL & tool-augmented LLMs
+
+MRKL & tool-augmented LLMs gets easier once you stop treating modular reasoning, knowledge retrieval, and tool routing logic as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how modular reasoning starts the behavior, how knowledge retrieval change the tradeoff, and why tool routing logic is often where reliability, latency, or quality becomes visible. Study common agent patterns through control flow, state, planning, and failure handling instead of hype.
+
+If you can explain how modular reasoning connects to tool routing logic, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Planning agents
+
+Planning agents gets easier once you stop treating task decomposition, MCTS for planning, and hierarchical task networks as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how task decomposition starts the behavior, how MCTS for planning change the tradeoff, and why hierarchical task networks is often where reliability, latency, or quality becomes visible. Study common agent patterns through control flow, state, planning, and failure handling instead of hype.
+
+If you can explain how task decomposition connects to hierarchical task networks, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Reflection & self-critique
+
+Reflection & self-critique gets easier once you stop treating self-refinement loops, critic agents, and external feedback integration as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how self-refinement loops starts the behavior, how critic agents change the tradeoff, and why external feedback integration is often where reliability, latency, or quality becomes visible. Study common agent patterns through control flow, state, planning, and failure handling instead of hype.
+
+If you can explain how self-refinement loops connects to external feedback integration, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Memory types
+
+Memory types gets easier once you stop treating episodic (conversation history), semantic (knowledge base), and procedural (skills) as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how episodic (conversation history) starts the behavior, how semantic (knowledge base) change the tradeoff, and why procedural (skills) is often where reliability, latency, or quality becomes visible. Study common agent patterns through control flow, state, planning, and failure handling instead of hype.
+
+If you can explain how episodic (conversation history) connects to procedural (skills), you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Multi-agent communication
+
+Multi-agent communication gets easier once you stop treating message passing protocols, blackboard architecture, and voting mechanisms as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how message passing protocols starts the behavior, how blackboard architecture change the tradeoff, and why voting mechanisms is often where reliability, latency, or quality becomes visible. Study common agent patterns through control flow, state, planning, and failure handling instead of hype.
+
+If you can explain how message passing protocols connects to voting mechanisms, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Agent failure modes
+
+Agent failure modes gets easier once you stop treating infinite loops, reward hacking, tool misuse, and hallucinated tool calls as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how infinite loops starts the behavior, how reward hacking and tool misuse change the tradeoff, and why hallucinated tool calls is often where reliability, latency, or quality becomes visible. Study common agent patterns through control flow, state, planning, and failure handling instead of hype.
+
+If you can explain how infinite loops connects to hallucinated tool calls, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Human-in-the-loop patterns
+
+Human-in-the-loop patterns gets easier once you stop treating approval gates, clarification requests, and escalation strategies as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how approval gates starts the behavior, how clarification requests change the tradeoff, and why escalation strategies is often where reliability, latency, or quality becomes visible. Study common agent patterns through control flow, state, planning, and failure handling instead of hype.
+
+If you can explain how approval gates connects to escalation strategies, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> Good agent patterns reduce manual glue while keeping error surfaces visible.
+
+## Bridge to the next lessons
+
+> Once the patterns are clear, orchestration frameworks and tool use become much easier to evaluate.
+
+## Further reading
+
+- [ReAct paper](https://arxiv.org/abs/2210.03629) — Official or high-signal reference for Agent Design Patterns.
+- [Tree of Thoughts paper](https://arxiv.org/abs/2305.10601) — Official or high-signal reference for Agent Design Patterns.
+- [MemGPT paper](https://arxiv.org/abs/2310.08560) — Official or high-signal reference for Agent Design Patterns.
+- [Microsoft AutoGen agents](https://microsoft.github.io/autogen/stable/user-guide/agentchat-user-guide/tutorial/agents.html) — Official or high-signal reference for Agent Design Patterns.
+- [Reflexion paper](https://arxiv.org/abs/2303.11366) — Official or high-signal reference for Agent Design Patterns.

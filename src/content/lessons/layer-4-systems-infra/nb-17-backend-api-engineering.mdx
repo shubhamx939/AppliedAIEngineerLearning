@@ -1,0 +1,211 @@
+---
+id: NB-17
+slug: nb-17-backend-api-engineering
+title: "Backend & API Engineering for AI"
+layer: layer-4-systems-infra
+order: 17
+summary: "Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries."
+estimatedMinutes: 480
+difficulty: Intermediate
+prerequisites:
+  - NB-01
+  - NB-04
+tags:
+  - backend
+  - api
+  - streaming
+  - fastapi
+updatedAt: "2026-04-14"
+resources:
+  - title: "FastAPI documentation"
+    href: "https://fastapi.tiangolo.com/"
+    note: "Official or high-signal reference for Backend & API Engineering for AI."
+  - title: "FastAPI background tasks"
+    href: "https://fastapi.tiangolo.com/tutorial/background-tasks/"
+    note: "Official or high-signal reference for Backend & API Engineering for AI."
+  - title: "Celery documentation"
+    href: "https://docs.celeryq.dev/"
+    note: "Official or high-signal reference for Backend & API Engineering for AI."
+  - title: "Pydantic v2 documentation"
+    href: "https://docs.pydantic.dev/latest/"
+    note: "Official or high-signal reference for Backend & API Engineering for AI."
+  - title: "SQLAlchemy async"
+    href: "https://docs.sqlalchemy.org/en/20/orm/extensions/asyncio.html"
+    note: "Official or high-signal reference for Backend & API Engineering for AI."
+  - title: "Schemathesis"
+    href: "https://schemathesis.readthedocs.io/"
+    note: "Official or high-signal reference for Backend & API Engineering for AI."
+---
+
+## What this lesson is really about
+
+A great model feature still needs a dependable backend. Most AI products succeed or fail on orchestration, request shaping, timeouts, and contract discipline more than on raw model novelty.
+
+This lesson turns backend work into something AI-specific rather than generic web development bolted onto a model.
+
+## What you will understand
+
+- Design request flows that fit AI latency and cost constraints.
+- Use typed interfaces and structured errors in model-serving APIs.
+- Understand streaming patterns for chat and long-running tasks.
+- Separate application logic from model and data plumbing more cleanly.
+
+## Why this topic matters in real AI engineering
+
+Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Async FastAPI
+
+Async FastAPI gets easier once you stop treating routers, dependencies, lifespan events, middleware, and dependency injection as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how routers starts the behavior, how dependencies, lifespan events, and middleware change the tradeoff, and why dependency injection is often where reliability, latency, or quality becomes visible. Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries.
+
+If you can explain how routers connects to dependency injection, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Pydantic v2 models
+
+Pydantic v2 models gets easier once you stop treating request/response validation, nested models, and discriminated unions as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how request/response validation starts the behavior, how nested models change the tradeoff, and why discriminated unions is often where reliability, latency, or quality becomes visible. Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries.
+
+If you can explain how request/response validation connects to discriminated unions, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Streaming responses
+
+Streaming responses gets easier once you stop treating SSE implementation, WebSocket streaming, and async generators for LLM output as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how SSE implementation starts the behavior, how WebSocket streaming change the tradeoff, and why async generators for LLM output is often where reliability, latency, or quality becomes visible. Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries.
+
+If you can explain how SSE implementation connects to async generators for LLM output, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Background tasks
+
+Background tasks gets easier once you stop treating FastAPI BackgroundTasks vs Celery vs ARQ vs Dramatiq as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how FastAPI BackgroundTasks vs Celery vs ARQ vs Dramatiq starts the behavior, how the middle pieces change the tradeoff, and why FastAPI BackgroundTasks vs Celery vs ARQ vs Dramatiq is often where reliability, latency, or quality becomes visible. Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries.
+
+If you can explain how FastAPI BackgroundTasks vs Celery vs ARQ vs Dramatiq connects to FastAPI BackgroundTasks vs Celery vs ARQ vs Dramatiq, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Idempotent API design
+
+Idempotent API design gets easier once you stop treating idempotency keys, retry-safe endpoints, and state machine patterns as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how idempotency keys starts the behavior, how retry-safe endpoints change the tradeoff, and why state machine patterns is often where reliability, latency, or quality becomes visible. Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries.
+
+If you can explain how idempotency keys connects to state machine patterns, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Rate limiting
+
+Rate limiting gets easier once you stop treating token bucket, sliding window, Redis-backed rate limiters, and per-user limits as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how token bucket starts the behavior, how sliding window and Redis-backed rate limiters change the tradeoff, and why per-user limits is often where reliability, latency, or quality becomes visible. Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries.
+
+If you can explain how token bucket connects to per-user limits, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. API authentication
+
+API authentication gets easier once you stop treating JWT, API keys, OAuth2 with FastAPI, and service-to-service auth as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how JWT starts the behavior, how API keys and OAuth2 with FastAPI change the tradeoff, and why service-to-service auth is often where reliability, latency, or quality becomes visible. Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries.
+
+If you can explain how JWT connects to service-to-service auth, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. OpenAPI & contract testing
+
+OpenAPI & contract testing gets easier once you stop treating auto-generated docs and Schemathesis for property-based API testing as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how auto-generated docs starts the behavior, how the middle pieces change the tradeoff, and why Schemathesis for property-based API testing is often where reliability, latency, or quality becomes visible. Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries.
+
+If you can explain how auto-generated docs connects to Schemathesis for property-based API testing, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. Database patterns
+
+Database patterns gets easier once you stop treating SQLAlchemy async, connection pooling, transaction management, and migrations as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how SQLAlchemy async starts the behavior, how connection pooling and transaction management change the tradeoff, and why migrations is often where reliability, latency, or quality becomes visible. Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries.
+
+If you can explain how SQLAlchemy async connects to migrations, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Error handling architecture
+
+Error handling architecture gets easier once you stop treating structured error responses, error codes, and logging correlation IDs as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how structured error responses starts the behavior, how error codes change the tradeoff, and why logging correlation IDs is often where reliability, latency, or quality becomes visible. Build the backend muscle behind AI products: APIs, streaming, contracts, error handling, and service boundaries.
+
+If you can explain how structured error responses connects to logging correlation IDs, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+## A compact example worth studying
+
+```python
+@app.post("/chat")
+async def chat(payload: ChatRequest) -> StreamingResponse:
+    stream = orchestration_service.stream_reply(payload)
+    return StreamingResponse(stream, media_type="text/event-stream")
+```
+
+This snippet is not here to impress you with completeness. It is here to give one concrete anchor for how the lesson's ideas surface in code.
+
+
+## What to remember
+
+> Think of the backend as the control plane that protects the user experience from model and infrastructure uncertainty.
+
+## Bridge to the next lessons
+
+> State management, memory, cloud deployment, and serving all extend the backend ideas introduced here.
+
+## Further reading
+
+- [FastAPI documentation](https://fastapi.tiangolo.com/) — Official or high-signal reference for Backend & API Engineering for AI.
+- [FastAPI background tasks](https://fastapi.tiangolo.com/tutorial/background-tasks/) — Official or high-signal reference for Backend & API Engineering for AI.
+- [Celery documentation](https://docs.celeryq.dev/) — Official or high-signal reference for Backend & API Engineering for AI.
+- [Pydantic v2 documentation](https://docs.pydantic.dev/latest/) — Official or high-signal reference for Backend & API Engineering for AI.
+- [SQLAlchemy async](https://docs.sqlalchemy.org/en/20/orm/extensions/asyncio.html) — Official or high-signal reference for Backend & API Engineering for AI.
+- [Schemathesis](https://schemathesis.readthedocs.io/) — Official or high-signal reference for Backend & API Engineering for AI.

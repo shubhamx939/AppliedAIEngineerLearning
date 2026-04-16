@@ -1,0 +1,192 @@
+---
+id: NB-23
+slug: nb-23-ai-system-design
+title: "AI System Design"
+layer: layer-5-production
+order: 23
+summary: "Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication."
+estimatedMinutes: 600
+difficulty: Advanced
+prerequisites:
+  - All Layer 4 notebooks
+tags:
+  - system-design
+  - architecture
+  - tradeoffs
+  - ai-products
+updatedAt: "2026-04-14"
+resources:
+  - title: "Designing ML Systems (Chip Huyen)"
+    href: "https://huyenchip.com/machine-learning-systems-design/toc.html"
+    note: "Official or high-signal reference for AI System Design."
+  - title: "System Design Primer"
+    href: "https://github.com/donnemartin/system-design-primer"
+    note: "Official or high-signal reference for AI System Design."
+  - title: "AWS Architecture Center"
+    href: "https://aws.amazon.com/architecture/"
+    note: "Official or high-signal reference for AI System Design."
+  - title: "Google Cloud Architecture Framework"
+    href: "https://cloud.google.com/architecture/framework"
+    note: "Official or high-signal reference for AI System Design."
+---
+
+## What this lesson is really about
+
+AI system design is the place where all prior lessons meet. You are no longer learning isolated techniques; you are composing product behavior under real constraints.
+
+The skill here is not drawing big diagrams. It is defending why a system should be shaped one way instead of another.
+
+## What you will understand
+
+- Break AI products into understandable services and responsibilities.
+- Communicate tradeoffs around latency, quality, cost, and reliability.
+- Recognize how retrieval, serving, state, and evaluation interact.
+- Make architecture choices that remain explainable under growth.
+
+## Why this topic matters in real AI engineering
+
+Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. End-to-end AI system architecture
+
+End-to-end AI system architecture gets easier once you stop treating tiers, contracts between tiers, and interface design as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how tiers starts the behavior, how contracts between tiers change the tradeoff, and why interface design is often where reliability, latency, or quality becomes visible. Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication.
+
+If you can explain how tiers connects to interface design, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Latency budgeting
+
+Latency budgeting gets easier once you stop treating time-to-first-token, total latency, and where LLM call fits in P95 budget as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how time-to-first-token starts the behavior, how total latency change the tradeoff, and why where LLM call fits in P95 budget is often where reliability, latency, or quality becomes visible. Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication.
+
+If you can explain how time-to-first-token connects to where LLM call fits in P95 budget, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Cost modeling
+
+Cost modeling gets easier once you stop treating token cost per request, compute cost, storage cost, and TCO formula for AI features as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how token cost per request starts the behavior, how compute cost and storage cost change the tradeoff, and why TCO formula for AI features is often where reliability, latency, or quality becomes visible. Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication.
+
+If you can explain how token cost per request connects to TCO formula for AI features, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Fallback & degradation strategies
+
+Fallback & degradation strategies gets easier once you stop treating model fallback chain, cache fallback, and rule-based fallback as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how model fallback chain starts the behavior, how cache fallback change the tradeoff, and why rule-based fallback is often where reliability, latency, or quality becomes visible. Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication.
+
+If you can explain how model fallback chain connects to rule-based fallback, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Multi-tenant AI platforms
+
+Multi-tenant AI platforms gets easier once you stop treating data isolation, per-tenant rate limiting, and cost attribution as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how data isolation starts the behavior, how per-tenant rate limiting change the tradeoff, and why cost attribution is often where reliability, latency, or quality becomes visible. Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication.
+
+If you can explain how data isolation connects to cost attribution, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Data flywheel design
+
+Data flywheel design gets easier once you stop treating feedback loops, continuous improvement, and annotation pipelines as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how feedback loops starts the behavior, how continuous improvement change the tradeoff, and why annotation pipelines is often where reliability, latency, or quality becomes visible. Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication.
+
+If you can explain how feedback loops connects to annotation pipelines, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Enterprise integration patterns
+
+Enterprise integration patterns gets easier once you stop treating event-driven AI, synchronous vs async LLM calls, and webhook delivery as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how event-driven AI starts the behavior, how synchronous vs async LLM calls change the tradeoff, and why webhook delivery is often where reliability, latency, or quality becomes visible. Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication.
+
+If you can explain how event-driven AI connects to webhook delivery, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Scaling patterns
+
+Scaling patterns gets easier once you stop treating request queuing, worker pools, auto-scaling triggers, and load shedding as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how request queuing starts the behavior, how worker pools and auto-scaling triggers change the tradeoff, and why load shedding is often where reliability, latency, or quality becomes visible. Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication.
+
+If you can explain how request queuing connects to load shedding, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. AI system design interview framework
+
+AI system design interview framework gets easier once you stop treating how to structure a 45-min system design answer as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how how to structure a 45-min system design answer starts the behavior, how the middle pieces change the tradeoff, and why how to structure a 45-min system design answer is often where reliability, latency, or quality becomes visible. Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication.
+
+If you can explain how how to structure a 45-min system design answer connects to how to structure a 45-min system design answer, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Case studies
+
+Case studies gets easier once you stop treating design a RAG chatbot, design an AI code review system, and design an agent platform as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how design a RAG chatbot starts the behavior, how design an AI code review system change the tradeoff, and why design an agent platform is often where reliability, latency, or quality becomes visible. Practice AI system design as product architecture: decomposition, constraints, failure surfaces, and tradeoff communication.
+
+If you can explain how design a RAG chatbot connects to design an agent platform, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+
+
+## What to remember
+
+> Strong system design converts scattered technical knowledge into coherent product architecture.
+
+## Bridge to the next lessons
+
+> Security and serving both depend on this architectural clarity.
+
+## Further reading
+
+- [Designing ML Systems (Chip Huyen)](https://huyenchip.com/machine-learning-systems-design/toc.html) — Official or high-signal reference for AI System Design.
+- [System Design Primer](https://github.com/donnemartin/system-design-primer) — Official or high-signal reference for AI System Design.
+- [AWS Architecture Center](https://aws.amazon.com/architecture/) — Official or high-signal reference for AI System Design.
+- [Google Cloud Architecture Framework](https://cloud.google.com/architecture/framework) — Official or high-signal reference for AI System Design.

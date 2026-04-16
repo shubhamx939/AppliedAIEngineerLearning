@@ -1,0 +1,217 @@
+---
+id: NB-05
+slug: nb-05-classical-ml
+title: "Classical Machine Learning"
+layer: layer-2-ai-ml-core
+order: 5
+summary: "Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning."
+estimatedMinutes: 480
+difficulty: Intermediate
+prerequisites:
+  - NB-02
+  - NB-04
+tags:
+  - ml
+  - ensembles
+  - evaluation
+  - sklearn
+updatedAt: "2026-04-14"
+resources:
+  - title: "scikit-learn user guide"
+    href: "https://scikit-learn.org/stable/user_guide.html"
+    note: "Official or high-signal reference for Classical Machine Learning."
+  - title: "XGBoost documentation"
+    href: "https://xgboost.readthedocs.io/en/stable/"
+    note: "Official or high-signal reference for Classical Machine Learning."
+  - title: "LightGBM documentation"
+    href: "https://lightgbm.readthedocs.io/"
+    note: "Official or high-signal reference for Classical Machine Learning."
+  - title: "SHAP documentation"
+    href: "https://shap.readthedocs.io/"
+    note: "Official or high-signal reference for Classical Machine Learning."
+  - title: "Imbalanced-learn"
+    href: "https://imbalanced-learn.org/stable/"
+    note: "Official or high-signal reference for Classical Machine Learning."
+---
+
+## What this lesson is really about
+
+Classical ML still wins many applied problems because it is fast to iterate, interpretable, and robust on structured data. Senior engineers know when not to overcomplicate the solution.
+
+A strong baseline culture makes model choices more honest. It also sharpens your thinking about features, labels, calibration, and evaluation before the stack gets more expensive.
+
+## What you will understand
+
+- Select classical models based on bias, variance, interpretability, and constraints.
+- Build strong baselines before reaching for larger neural models.
+- Interpret metrics with business and product context in mind.
+- Use pipelines and validation strategies that reduce leakage and brittle experimentation.
+
+## Why this topic matters in real AI engineering
+
+Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning. This lesson should help you notice which parts are conceptual, which parts are operational, and which parts are the usual source of failure when a team tries to move too quickly.
+
+## How to use this lesson
+
+Read the sections in order the first time. On later passes, use the subtopic map below as a reference spine: it is arranged to help you connect ideas rather than memorize isolated terms.
+
+## Subtopic map
+
+### 1. Supervised learning
+
+Supervised learning gets easier once you stop treating linear/logistic regression from scratch, bias-variance tradeoff, and regularization as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how linear/logistic regression from scratch starts the behavior, how bias-variance tradeoff change the tradeoff, and why regularization is often where reliability, latency, or quality becomes visible. Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning.
+
+If you can explain how linear/logistic regression from scratch connects to regularization, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 2. Decision trees & ensembles
+
+Decision trees & ensembles gets easier once you stop treating CART algorithm, Random Forest, and Bagging vs Boosting as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how CART algorithm starts the behavior, how Random Forest change the tradeoff, and why Bagging vs Boosting is often where reliability, latency, or quality becomes visible. Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning.
+
+If you can explain how CART algorithm connects to Bagging vs Boosting, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 3. Gradient boosting
+
+Gradient boosting gets easier once you stop treating XGBoost, LightGBM, and CatBoost as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how XGBoost starts the behavior, how LightGBM change the tradeoff, and why CatBoost is often where reliability, latency, or quality becomes visible. Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning.
+
+If you can explain how XGBoost connects to CatBoost, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 4. Unsupervised learning
+
+Unsupervised learning gets easier once you stop treating K-means, DBSCAN, hierarchical clustering, and anomaly detection (Isolation Forest) as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how K-means starts the behavior, how DBSCAN and hierarchical clustering change the tradeoff, and why anomaly detection (Isolation Forest) is often where reliability, latency, or quality becomes visible. Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning.
+
+If you can explain how K-means connects to anomaly detection (Isolation Forest), you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 5. Dimensionality reduction
+
+Dimensionality reduction gets easier once you stop treating PCA, t-SNE, and UMAP as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how PCA starts the behavior, how t-SNE change the tradeoff, and why UMAP is often where reliability, latency, or quality becomes visible. Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning.
+
+If you can explain how PCA connects to UMAP, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 6. Feature engineering
+
+Feature engineering gets easier once you stop treating encoding strategies, interaction features, target encoding, and feature selection as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how encoding strategies starts the behavior, how interaction features and target encoding change the tradeoff, and why feature selection is often where reliability, latency, or quality becomes visible. Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning.
+
+If you can explain how encoding strategies connects to feature selection, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 7. Model evaluation
+
+Model evaluation gets easier once you stop treating precision/recall/F1, ROC-AUC, calibration, and confusion matrix at scale as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how precision/recall/F1 starts the behavior, how ROC-AUC and calibration change the tradeoff, and why confusion matrix at scale is often where reliability, latency, or quality becomes visible. Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning.
+
+If you can explain how precision/recall/F1 connects to confusion matrix at scale, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 8. Model interpretability
+
+Model interpretability gets easier once you stop treating SHAP values, LIME, partial dependence plots, and feature importance as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how SHAP values starts the behavior, how LIME and partial dependence plots change the tradeoff, and why feature importance is often where reliability, latency, or quality becomes visible. Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning.
+
+If you can explain how SHAP values connects to feature importance, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 9. sklearn pipelines
+
+sklearn pipelines gets easier once you stop treating Pipeline, ColumnTransformer, custom transformers, and cross-validation strategies as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how Pipeline starts the behavior, how ColumnTransformer and custom transformers change the tradeoff, and why cross-validation strategies is often where reliability, latency, or quality becomes visible. Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning.
+
+If you can explain how Pipeline connects to cross-validation strategies, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+### 10. Class imbalance
+
+Class imbalance gets easier once you stop treating SMOTE, class weights, threshold tuning, and cost-sensitive learning as isolated terms and start reading them as one sequence of design decisions.
+
+In practice, ask how SMOTE starts the behavior, how class weights and threshold tuning change the tradeoff, and why cost-sensitive learning is often where reliability, latency, or quality becomes visible. Understand classical machine learning as a practical engineering toolkit rather than a historical prelude to deep learning.
+
+If you can explain how SMOTE connects to cost-sensitive learning, you are already moving beyond memorization and into system understanding.
+
+- Focus on what changes when this subtopic is used under real product constraints.
+- Ask yourself which failure mode becomes more likely if this part is weak.
+- Tie the idea back to the broader lesson instead of learning it as isolated vocabulary.
+
+
+## A compact example worth studying
+
+```python
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+
+pipeline = Pipeline(
+    steps=[
+        ("prep", ColumnTransformer([
+            ("num", StandardScaler(), ["age", "spend"]),
+            ("cat", OneHotEncoder(handle_unknown="ignore"), ["segment"]),
+        ])),
+        ("model", RandomForestClassifier(n_estimators=300, random_state=7)),
+    ]
+)
+```
+
+This snippet is not here to impress you with completeness. It is here to give one concrete anchor for how the lesson's ideas surface in code.
+
+
+## What to remember
+
+> Treat classical ML as a disciplined decision-making framework, not just a collection of algorithms.
+
+## Bridge to the next lessons
+
+> That discipline carries straight into deep learning, where training becomes more flexible but much easier to get wrong.
+
+## Further reading
+
+- [scikit-learn user guide](https://scikit-learn.org/stable/user_guide.html) — Official or high-signal reference for Classical Machine Learning.
+- [XGBoost documentation](https://xgboost.readthedocs.io/en/stable/) — Official or high-signal reference for Classical Machine Learning.
+- [LightGBM documentation](https://lightgbm.readthedocs.io/) — Official or high-signal reference for Classical Machine Learning.
+- [SHAP documentation](https://shap.readthedocs.io/) — Official or high-signal reference for Classical Machine Learning.
+- [Imbalanced-learn](https://imbalanced-learn.org/stable/) — Official or high-signal reference for Classical Machine Learning.
